@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoPixel Studio - 스마트 사무 보조 & 업무 자동화 RPA 솔루션</title>
+    <meta name="description" content="코딩 없이 화면을 캡처하여 1분 만에 완성하는 백그라운드 사무 자동화 솔루션. 엑셀 데이터 입력, 웹 크롤링, 24시간 무인 모니터링을 10배 빠르게.">
+    <meta name="keywords" content="사무자동화, 업무자동화, RPA, 노코드매크로, 이미지인식, 백그라운드매크로, AutoPixel">
+    
+    <!-- Open Graph (카카오톡, SNS, 카페 공유 미리보기 카드) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="AutoPixel Studio - 스마트 사무 보조 & 업무 자동화 RPA 솔루션">
+    <meta property="og:description" content="코딩 없이 화면 캡처로 1분 만에 완성! 마우스 간섭 없는 백그라운드 가상 입력 지원. 지금 무료 다운로드!">
+    <meta property="og:image" content="web_assets/hero_preview.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <style>
+        :root {
+            --bg: #09090B;
+            --card-bg: #121215;
+            --card-hover: #18181B;
+            --border: #27272A;
+            --border-hover: #3F3F46;
+            --primary: #4F46E5;
+            --primary-light: #6366F1;
+            --primary-glow: rgba(99, 102, 241, 0.25);
+            --accent-emerald: #10B981;
+            --accent-amber: #F59E0B;
+            --accent-sky: #38BDF8;
+            --text-main: #FAFAFA;
+            --text-sub: #A1A1AA;
+            --text-muted: #71717A;
+            --font: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Nav */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(9, 9, 11, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+        }
+
+        .logo-box {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 18px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-badge {
+            background: var(--primary);
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 900;
+            padding: 4px 8px;
+            border-radius: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-sub);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .btn-nav-download {
+            background: var(--primary);
+            color: #FFFFFF;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 9px 18px;
+            border-radius: 6px;
+            border: 1px solid var(--primary-light);
+            transition: all 0.2s ease;
+        }
+
+        .btn-nav-download:hover {
+            background: #4338CA;
+            box-shadow: 0 0 20px var(--primary-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(79, 70, 229, 0.18) 0%, rgba(9, 9, 11, 0) 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .badge-obt {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--accent-emerald);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 900;
+            letter-spacing: -1.2px;
+            line-height: 1.25;
+            margin-bottom: 20px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 0%, #A5B4FC 50%, #818CF8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-sub);
+            max-width: 680px;
+            margin: 0 auto 36px;
+            line-height: 1.6;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary);
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 700;
+            padding: 14px 28px;
+            border-radius: 8px;
+            border: 1px solid var(--primary-light);
+            box-shadow: 0 4px 24px var(--primary-glow);
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: #4338CA;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #18181B;
+            color: var(--text-main);
+            font-size: 15px;
+            font-weight: 600;
+            padding: 14px 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.2s ease;
+        }
+
+        .btn-secondary:hover {
+            background: #27272A;
+            border-color: var(--border-hover);
+        }
+
+        .hero-guarantee {
+            font-size: 13px;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* Mockup Frame */
+        .mockup-wrap {
+            margin-top: 50px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            background: #121215;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+
+        .mockup-header {
+            background: #18181B;
+            padding: 10px 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .dot-red { background: #EF4444; }
+        .dot-yellow { background: #F59E0B; }
+        .dot-green { background: #10B981; }
+
+        .mockup-title {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-left: 8px;
+            font-weight: 600;
+        }
+
+        .mockup-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Metrics Bar */
+        .metrics-bar {
+            margin: 60px 0;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .metric-item h3 {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary-light);
+            margin-bottom: 4px;
+        }
+
+        .metric-item p {
+            font-size: 13px;
+            color: var(--text-sub);
+            font-weight: 600;
+        }
+
+        /* Section Headings */
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-tag {
+            font-size: 12px;
+            font-weight: 800;
+            color: var(--primary-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: 34px;
+            font-weight: 800;
+            letter-spacing: -0.8px;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            font-size: 16px;
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.2s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            font-size: 13px;
+            color: #CBD5E1;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--accent-emerald);
+            font-weight: bold;
+        }
+
+        /* Multi-Runner Showcase */
+        .showcase-box {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            margin-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .showcase-text h3 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .showcase-text p {
+            font-size: 15px;
+            color: var(--text-sub);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .showcase-points {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .sp-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+        }
+
+        .sp-badge {
+            background: #27272A;
+            color: var(--accent-sky);
+            font-size: 12px;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+
+        .sp-desc {
+            font-size: 13px;
+            color: #E4E4E7;
+        }
+
+        /* 3-Step Section */
+        .steps-wrap {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .step-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 28px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+        }
+
+        .step-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .step-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .step-num {
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            background: var(--primary);
+            color: #FFFFFF;
+            padding: 3px 10px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .step-tag {
+            font-size: 11px;
+            color: var(--primary-light);
+            font-weight: 700;
+            background: rgba(99, 102, 241, 0.12);
+            border: 1px solid rgba(99, 102, 241, 0.25);
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .step-card h3 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .step-card p {
+            font-size: 13px;
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .step-features {
+            margin-top: auto;
+            padding-top: 14px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+        }
+
+        .step-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #CBD5E1;
+            font-weight: 500;
+        }
+
+        .step-feature-item span.chk {
+            color: var(--accent-emerald);
+            font-weight: 800;
+            font-size: 13px;
+        }
+
+        /* Beta Banner */
+        .beta-banner {
+            background: linear-gradient(135deg, #18181B 0%, #1E1B4B 100%);
+            border: 1px solid #3730A3;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .beta-banner h3 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .beta-banner p {
+            font-size: 15px;
+            color: #CBD5E1;
+            max-width: 640px;
+            margin: 0 auto 24px;
+        }
+
+        .beta-warn-text {
+            font-size: 12px;
+            color: var(--accent-amber);
+            font-weight: 600;
+            margin-top: 14px;
+        }
+
+        /* FAQ Section */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto 80px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 18px 24px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-light);
+        }
+
+        .faq-answer {
+            padding: 0 24px 20px;
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.6;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-light);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            background: #09090B;
+            padding: 50px 0 30px;
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 40px;
+            gap: 40px;
+        }
+
+        .footer-brand h4 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            color: var(--text-muted);
+            max-width: 440px;
+            line-height: 1.6;
+            word-break: keep-all;
+        }
+
+        .footer-links-group {
+            display: flex;
+            gap: 50px;
+        }
+
+        .footer-col h5 {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 14px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .footer-col a {
+            font-size: 13px;
+            color: var(--text-sub);
+        }
+
+        .footer-col a:hover {
+            color: var(--text-main);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Modal Styles (이용약관 및 개인정보처리방침) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            z-index: 200;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 680px;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
+        }
+
+        .modal-header {
+            padding: 18px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h3 {
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .modal-close:hover {
+            color: var(--text-main);
+        }
+
+        .modal-body {
+            padding: 24px;
+            overflow-y: auto;
+            font-size: 13px;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+
+        .modal-body h4 {
+            color: var(--text-main);
+            margin: 16px 0 6px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 15px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .showcase-box { grid-template-columns: 1fr; padding: 24px; }
+            .steps-wrap { grid-template-columns: 1fr; }
+            .metrics-bar { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+            .footer-inner { flex-direction: column; gap: 30px; }
+            .hero-actions { flex-direction: column; }
+            .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Nav -->
+    <header>
+        <div class="container nav-inner">
+            <div class="logo-box">
+                <span class="logo-badge">AP</span>
+                <span>AutoPixel Studio</span>
+            </div>
+            <nav class="nav-links">
+                <a href="#features">기능 소개</a>
+                <a href="#multirunner">멀티 러너</a>
+                <a href="#guide">3단계 가이드</a>
+                <a href="#faq">자주 묻는 질문</a>
+                <a href="#support">고객지원</a>
+            </nav>
+            <a href="https://github.com/AutoPixel-Studio/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-nav-download" id="topDownloadBtn">
+                오픈 베타 무료 다운로드
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="badge-obt">
+                <span>🎉 OPEN BETA</span>
+                <span>•</span>
+                <span>전 기능 무료 개방</span>
+            </div>
+            <h1>
+                단순 반복 업무 0%의 혁신,<br>
+                <span class="gradient-text">스마트 사무 보조 RPA 솔루션</span>
+            </h1>
+            <p>
+                마우스 커서를 빼앗기지 않는 백그라운드 가상 입력 지원.<br>
+                엑셀 대량 복사-붙여넣기, 웹 쇼핑몰 등록, 24시간 실시간 모니터링을 코딩 없이 1분 만에 자동화하세요.
+            </p>
+            <div class="hero-actions">
+                <a href="https://github.com/AutoPixel-Studio/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-primary" id="heroDownloadBtn">
+                    <span>⬇️ Windows용 무료 다운로드</span>
+                </a>
+                <a href="#guide" class="btn-secondary">
+                    <span>📖 1분 사용법 가이드</span>
+                </a>
+            </div>
+            <div class="hero-guarantee">
+                <span>✓ Windows 10/11 완벽 지원</span>
+                <span>✓ 회원가입/신용카드 등록 없이 즉시 시작</span>
+                <span>✓ 오픈 베타 전 기능 무제한 무료</span>
+            </div>
+
+            <!-- UI Mockup Frame -->
+            <div class="mockup-wrap">
+                <div class="mockup-header">
+                    <span class="mockup-dot red"></span>
+                    <span class="mockup-dot yellow"></span>
+                    <span class="mockup-dot green"></span>
+                    <span class="mockup-title">AutoPixel Studio - [업무자동화_견적서_일괄추출.apx]</span>
+                </div>
+                <img src="web_assets/hero_preview.png" alt="AutoPixel Studio 메인 인터페이스" class="mockup-img">
+            </div>
+        </div>
+    </section>
+
+    <!-- Metrics Bar -->
+    <div class="container">
+        <div class="metrics-bar">
+            <div class="metric-item">
+                <h3>90%</h3>
+                <p>단순 반복 업무 소요 시간 절감</p>
+            </div>
+            <div class="metric-item">
+                <h3>100%</h3>
+                <p>마우스 무간섭 백그라운드 구동</p>
+            </div>
+            <div class="metric-item">
+                <h3>0줄</h3>
+                <p>코딩 없는 시각적 노코드 자동화</p>
+            </div>
+            <div class="metric-item">
+                <h3>100%</h3>
+                <p>오픈 베타 전 기능 무료 개방</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Features Section -->
+    <section class="container" id="features">
+        <div class="section-header">
+            <span class="section-tag">Core Features</span>
+            <h2>지루한 반복 업무, AutoPixel에 맡기세요</h2>
+            <p>사람이 실수하기 쉬운 단순 복붙과 키인 작업을 100% 무인화합니다.</p>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>엑셀 / 사내 ERP / 회계 자동 입력</h3>
+                <p>수백~수천 건의 발주서, 세금계산서 데이터를 사내 시스템에 오차 없이 자동 입력합니다.</p>
+                <ul class="feature-list">
+                    <li>사람의 수기 입력 오타 및 누락 원천 차단</li>
+                    <li>퇴근 후 야간 시간대 무인 대량 처리 가능</li>
+                    <li>지정된 딜레이와 안전 대기로 서버 차단 방지</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🌐</div>
+                <h3>웹 브라우저 & 포털 쇼핑몰 자동화</h3>
+                <p>스마트스토어, 쿠팡, 도매 사이트의 상품 등록 및 가격 변동 모니터링을 자동화합니다.</p>
+                <ul class="feature-list">
+                    <li>크롬, 엣지, 웨일 등 브라우저 종류 불문 인식</li>
+                    <li>웹 페이지 로그인 및 파일 업로드/다운로드</li>
+                    <li>주기적인 주문 현황 조회 및 송장 번호 갱신</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🔔</div>
+                <h3>실시간 화면 감시 & 장애 대응</h3>
+                <p>특정 에러 팝업, 대기 완료 화면을 감지하여 상황에 맞는 지능형 후속 조치를 취합니다.</p>
+                <ul class="feature-list">
+                    <li>오류 팝업 발생 시 즉시 감지 후 [확인] 자동 클릭</li>
+                    <li>화면 변화가 없을 때 재시도(Retry)하는 조건문 분기</li>
+                    <li>작업 완료 시 사운드 알림 및 상세 이벤트 로그 기록</li>
+                </ul>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">🖥️</div>
+                <h3>백그라운드 다중 창(Multi-Window) 실행</h3>
+                <p>마우스 커서를 빼앗지 않는 가상 입력 신호로 사용자는 자유롭게 PC 실업무를 지속합니다.</p>
+                <ul class="feature-list">
+                    <li>자동화가 돌아가는 동안 워드 작성, 웹서핑 동시 이용</li>
+                    <li>창을 다른 프로그램 뒤에 가려두어도 100% 정상 작동</li>
+                    <li>멀티 러너 대시보드에서 다중 작업 원클릭 일괄 제어</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Multi-Runner Showcase -->
+    <section class="container" id="multirunner">
+        <div class="showcase-box">
+            <div class="showcase-text">
+                <div class="badge-obt" style="margin-bottom: 12px;">🚀 Multi-Runner Engine</div>
+                <h3>컴퓨터 1대로<br>3개, 5개 창을 동시에</h3>
+                <p>
+                    독자 개발된 백그라운드 가상 입력 엔진을 통해, 여러 개의 창을 동시에 무인으로 구동할 수 있습니다.
+                    야간이나 주말에도 컴퓨터 혼자서 수십 명 몫의 업무를 대신 처리합니다.
+                </p>
+                <div class="showcase-points">
+                    <div class="sp-item">
+                        <span class="sp-badge">무제한 슬롯</span>
+                        <span class="sp-desc">원하는 만큼 작업 슬롯을 추가하여 다중 창 일괄 가동</span>
+                    </div>
+                    <div class="sp-item">
+                        <span class="sp-badge">프리셋 저장</span>
+                        <span class="sp-desc">세팅한 작업 파일과 대상 창을 저장하여 1클릭 복원</span>
+                    </div>
+                    <div class="sp-item">
+                        <span class="sp-badge">크기 자동 복원</span>
+                        <span class="sp-desc">제작 당시 해상도로 창 크기를 1초 만에 자동 리사이즈</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mockup-wrap" style="margin-top: 0;">
+                <img src="web_assets/runner_preview.png" alt="Multi-Runner 대시보드">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3-Step Guide -->
+    <section class="container" id="guide">
+        <div class="section-header">
+            <span class="section-tag">How It Works</span>
+            <h2>1분 완성! 3단계 빠른 시작 가이드</h2>
+            <p>복잡한 코딩이나 스크립트 작성 없이 마우스 클릭만으로 매크로를 완성합니다.</p>
+        </div>
+
+        <div class="steps-wrap">
+            <div class="step-card">
+                <div class="step-card-header">
+                    <span class="step-num">STEP 01</span>
+                    <span class="step-tag">🎯 대상 창 & 이미지 캡처</span>
+                </div>
+                <h3>대상 창 지정 & 타겟 이미지 등록</h3>
+                <p>
+                    <strong>[🎯 마우스로 창 선택]</strong>으로 자동화할 대상 프로그램(웹 브라우저, 엑셀, 사내 ERP 등)을 콕 찍고, 
+                    <strong>[📷 캡처]</strong> 버튼으로 클릭할 버튼이나 텍스트를 마우스로 드래그하여 즉시 등록합니다.
+                </p>
+                <div class="step-features">
+                    <div class="step-feature-item">
+                        <span class="chk">✓</span>
+                        <span>고유 창 핸들(HWND) 자동 추적 및 식별</span>
+                    </div>
+                    <div class="step-feature-item">
+                        <span class="chk">✓</span>
+                        <span>듀얼 및 멀티 모니터 완벽 지원</span>
+                    </div>
+                    <div class="step-feature-item">
+                        <span class="chk">✓</span>
+                        <span>이미지 유사도(임계값) 0.1% 단위 정밀 조정</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-card-header">
+                    <span class="step-num">STEP 02</span>
+                    <span class="step-tag">🧩 시각적 노코드 조립</span>
+                </div>
+                <h3>플로우차트로 액션 연결 & 테스트</h3>
+                <p>
+                    등록한 이미지를 드래그하여 <strong>클릭(단타/더블/우클릭)</strong>, <strong>텍스트 타이핑</strong>, <strong>스마트 대기(지연)</strong>를 레고 블록처럼 이어줍니다. 
+                    <strong>[▶ 단독 테스트]</strong>로 실시간 사전 검증이 가능합니다.
+                </p>
+                <div class="step-features">
+                    <div class="step-feature-item">
+                        <span class="chk">✓</span>
+                        <span>마우스 클릭, 드래그, 텍스트 자동 입력 지원</span>
+                    </div>
+                    <div class="step-feature-item">
+                        <span class="chk">✓</span>
+                        <span>이미지 미발견 시 대기/재시도/건너뛰기 제어</span>
+                    </div>
+                    <div class="step-feature-item">
+                        <span class="chk">✓</span>
+                        <span>상단 [💾 저장] 버튼으로 단일 실행 패키지 완성</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="step-card">
+                <div class="step-card-header">
+                    <span class="step-num">STEP 03</span>
+                    <span class="step-tag">🚀 멀티 무인 백그라운드</span>
+                </div>
+                <h3>Multi-Runner 다중 일괄 무인 가동</h3>
+                <p>
+                    <strong>[멀티 실행]</strong> 탭에서 저장한 프로젝트를 불러온 뒤 <strong>[▶ 전체 일괄 시작]</strong>을 누르면 
+                    마우스 커서를 빼앗기지 않고 백그라운드 가상 입력으로 24시간 자동 실행됩니다.
+                </p>
+                <div class="step-features">
+                    <div class="step-feature-item">
+                        <span class="chk">✓</span>
+                        <span>매크로 가동 중에도 내 마우스로 엑셀/웹서핑 자유 작업</span>
+                    </div>
+                    <div class="step-feature-item">
+                        <span class="chk">✓</span>
+                        <span>창이 다른 창 뒤에 가려져 있어도 100% 정상 작동</span>
+                    </div>
+                    <div class="step-feature-item">
+                        <span class="chk">✓</span>
+                        <span>실시간 실행 횟수 및 성공/실패 로그 모니터링</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beta Benefit Banner -->
+    <div class="container">
+        <div class="beta-banner">
+            <h3>🎉 오픈 베타(Open Beta) 전 기능 무료 체험</h3>
+            <p>
+                현재 AutoPixel Studio는 오픈 베타 테스트 기간으로, 복잡한 결제나 카드 등록 없이 
+                누구나 Studio 매크로 제작과 Multi-Runner 다중 실행 전체를 무료로 이용하실 수 있습니다.
+            </p>
+            <a href="https://github.com/AutoPixel-Studio/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-primary" id="bannerDownloadBtn">
+                <span>⬇️ 오픈 베타 무료 다운로드</span>
+            </a>
+            <div class="beta-warn-text">
+                ※ 본 프로그램은 현재 오픈 베타테스트 진행 중으로, 서비스 정책 및 테스트 종료 시 언제든 유료 전환될 수 있습니다.
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section class="container" id="faq">
+        <div class="section-header">
+            <span class="section-tag">FAQ</span>
+            <h2>자주 묻는 질문</h2>
+            <p>궁금하신 점을 빠르게 확인해 보세요.</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Q. 매크로가 실행되는 동안 제 마우스로 다른 작업을 할 수 있나요?</span>
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    네, 가능합니다! AutoPixel Studio의 기본 모드는 '백그라운드 가상 입력' 방식입니다. 마우스 커서를 직접 물리적으로 움직이지 않고 프로그램 창 내부에 직접 클릭 및 키보드 신호를 전달하므로, 매크로가 도는 동안에도 웹서핑이나 문서 작성을 자유롭게 하실 수 있습니다.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Q. 파이썬이나 코딩을 전혀 모르는 비전공자도 쓸 수 있나요?</span>
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    네, 100% 노코드(No-Code) 방식으로 설계되었습니다. 화면에서 마우스로 버튼을 캡처하고, 플로우차트 상에서 클릭과 대기 시간만 순서대로 이어주면 1분 만에 업무 자동화가 완성됩니다.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Q. 다운로드 시 윈도우 디펜더 '스마트스크린(SmartScreen)' 경고가 뜨면 어떻게 하나요?</span>
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    새롭게 배포된 실행 파일(.exe)은 윈도우 OS의 초기 다운로드 누적 수가 쌓이기 전까지 일시적으로 스마트스크린 안내창이 나타날 수 있습니다. 팝업창에서 <strong>[추가 정보]</strong>를 누르신 후 <strong>[실행]</strong> 버튼을 클릭하시면 정상적으로 실행됩니다. 악성코드나 바이러스가 일절 없는 안전한 소프트웨어입니다.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Q. 무료 체험 후 자동으로 유료 결제되거나 과금되나요?</span>
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    절대 아닙니다! 신용카드나 결제 정보를 사전에 일절 요구하지 않으므로 어떠한 자동 결제도 발생하지 않습니다. 베타 기간 동안 모든 기능을 자유롭게 사용해보실 수 있으며, 추후 정식 유료 전환 시에도 사용자가 직접 연장을 원할 때만 결제하는 구조입니다.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Q. 작업 창을 최소화(_)해 두어도 동작하나요?</span>
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    작업 창 위에 엑셀이나 브라우저를 띄워 '가려두는 것(창 가림)'은 100% 정상 작동합니다. 단, 작업표시줄로 '최소화(_)'할 경우 윈도우 OS가 그래픽 렌더링을 중단하므로 창을 최소화하지 마시고 다른 창 뒤에 덮어두시는 것을 권장합니다.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="support">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <div class="logo-box" style="margin-bottom: 12px;">
+                        <span class="logo-badge">AP</span>
+                        <span>AutoPixel Studio</span>
+                    </div>
+                    <p>
+                        반복적인 단순 수작업을 0(Zero)으로 만드는<br>
+                        컴퓨터 비전 기반 스마트 사무 보조 RPA 솔루션.
+                    </p>
+                </div>
+                <div class="footer-links-group">
+                    <div class="footer-col">
+                        <h5>다운로드 & 가이드</h5>
+                        <ul>
+                            <li><a href="https://github.com/AutoPixel-Studio/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe">최신 버전 다운로드</a></li>
+                            <li><a href="#guide">3단계 빠른 시작</a></li>
+                            <li><a href="#faq">자주 묻는 질문 (FAQ)</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h5>고객지원 & 문의</h5>
+                        <ul>
+                            <li><a href="javascript:void(0)" onclick="openSupportModal()">💬 카카오톡 1:1 상담</a></li>
+                            <li><a href="javascript:void(0)" onclick="openModal('termsModal')">이용약관</a></li>
+                            <li><a href="javascript:void(0)" onclick="openModal('privacyModal')">개인정보처리방침</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>© 2026 AutoPixel Studio. All rights reserved.</div>
+                <div>Designed for Maximum Office Productivity</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 이용약관 모달 -->
+    <div class="modal" id="termsModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>AutoPixel Studio 서비스 이용약관</h3>
+                <button class="modal-close" onclick="closeModal('termsModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <h4>제1조 (목적)</h4>
+                <p>본 약관은 AutoPixel Studio(이하 "소프트웨어")의 이용과 관련하여 개발사와 사용자 간의 권리, 의무 및 책임 사항을 규정함을 목적으로 합니다.</p>
+                
+                <h4>제2조 (용도 및 한계)</h4>
+                <p>본 소프트웨어는 사용자의 업무 생산성 향상 및 단순 반복적 데이터 입력/모니터링을 보조하기 위한 컴퓨터 비전 기반 RPA(로봇 프로세스 자동화) 도구입니다.</p>
+
+                <h4>제3조 (사용자의 의무 및 책임)</h4>
+                <p>1. 사용자는 본 소프트웨어를 연동하거나 적용하는 대상 프로그램, 플랫폼, 웹사이트의 서비스 이용약관 및 운영 정책을 준수할 전적인 책임이 있습니다.<br>
+                2. 대상 소프트웨어의 업데이트, 정책 변경, 사용자의 부주의 또는 약관 위반으로 인해 발생하는 계정 제재, 데이터 유실, 손실에 대해 개발사는 법적 책임을 지지 않습니다.</p>
+
+                <h4>제4조 (지적재산권 및 금지행위)</h4>
+                <p>1. 본 소프트웨어의 저작권 및 지적재산권은 개발사에 귀속됩니다.<br>
+                2. 사용자는 비인가 방식으로 소프트웨어를 역공학(리버스 엔지니어링), 크랙, 변조하거나 상업적 목적으로 무단 재배포할 수 없습니다.</p>
+
+                <h4>제5조 (오픈 베타 및 유료 전환)</h4>
+                <p>현재 배포 중인 버전은 오픈 베타 테스트(OBT) 버전으로, 개발사의 서비스 운영 정책 및 테스트 종료 일정에 따라 사전 공지와 함께 유료 라이선스 체제로 전환될 수 있습니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 개인정보처리방침 모달 -->
+    <div class="modal" id="privacyModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>개인정보처리방침</h3>
+                <button class="modal-close" onclick="closeModal('privacyModal')">✕</button>
+            </div>
+            <div class="modal-body">
+                <h4>1. 수집하는 정보 항목</h4>
+                <p>AutoPixel Studio는 서비스 이용 및 라이선스 인증 관리를 위해 최소한의 기기 식별 정보를 수집합니다.<br>
+                • 수집 항목: 기기 고유 해시값(HWID), 최초 등록 일시, 최근 인증 일시, IP 토큰값(보안용 단방향 암호화)<br>
+                • 주민등록번호, 신용카드 번호 등 민감한 개인정보는 일절 수집하지 않습니다.</p>
+
+                <h4>2. 정보의 수집 및 이용 목적</h4>
+                <p>• 중복 무료 체험 방지 및 세션 유지 관리<br>
+                • 정품 라이선스 만료일 및 구독 기간 실시간 검증<br>
+                • 클라우드 기반 최신 버전 자동 업데이트 배포</p>
+
+                <h4>3. 보유 및 이용 기간</h4>
+                <p>수집된 기기 식별 정보는 사용자가 라이선스를 이용하는 기간 동안 보관되며, 사용자가 세션 삭제를 요청하거나 서비스가 종료될 경우 지체 없이 안전하게 파기됩니다.</p>
+
+                <h4>4. 고객지원 문의</h4>
+                <p>개인정보 처리 및 기기 정보 초기화 관련 문의사항은 공식 고객지원 창구(카카오톡 1:1 오픈채팅)로 연락해 주시기 바랍니다.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 고객지원 알림 모달 -->
+    <div class="modal" id="supportModal">
+        <div class="modal-content" style="max-width: 440px;">
+            <div class="modal-header">
+                <h3>AutoPixel Studio 1:1 고객지원</h3>
+                <button class="modal-close" onclick="closeModal('supportModal')">✕</button>
+            </div>
+            <div class="modal-body" style="text-align: center; padding: 24px 20px;">
+                <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+                    <img src="web_assets/kakao_QR.png" alt="카카오톡 1:1 오픈채팅 QR코드" style="width: 175px; height: 175px; border-radius: 12px; border: 2px solid var(--border); box-shadow: 0 4px 16px rgba(0,0,0,0.4);" onerror="this.src='web_assets/kakao_QR.png'">
+                </div>
+                <h4 style="margin-bottom: 6px; font-size: 16px; color: var(--text-main);">카카오톡 1:1 오픈채팅</h4>
+                <p style="margin-bottom: 6px; font-size: 13px; color: var(--accent-amber); font-weight: 600;">
+                    스마트폰 카메라로 QR 코드를 스캔하세요
+                </p>
+                <p style="margin-bottom: 18px; font-size: 12px; color: var(--text-sub); line-height: 1.5;">
+                    PC 카카오톡을 이용 중이시라면 아래 버튼을 클릭하여 상담방으로 바로 이동하실 수 있습니다.
+                </p>
+                <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px; font-size: 14px; font-weight: 700; background: #FEE500; color: #191919; border: none; border-radius: 8px; text-decoration: none; cursor: pointer; transition: filter 0.2s;" onmouseover="this.style.filter='brightness(0.92)'" onmouseout="this.style.filter='brightness(1.0)'">
+                    <span style="font-size: 16px;">💬</span> 카카오톡 1:1 오픈채팅 열기
+                </a>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 14px;">
+                    운영 시간: 상시 문의 가능 (확인 즉시 친절히 답변 드립니다)
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Modals
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+
+        function openSupportModal() {
+            openModal('supportModal');
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
