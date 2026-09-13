@@ -452,6 +452,180 @@
             color: #E4E4E7;
         }
 
+        /* Summary Box ("도대체 무슨 프로그램인가요?") */
+        .summary-box {
+            background: linear-gradient(180deg, rgba(79, 70, 229, 0.1) 0%, rgba(18, 18, 21, 0.95) 100%);
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 35px rgba(79, 70, 229, 0.15);
+            border-radius: 16px;
+            padding: 44px 36px;
+            margin: 40px 0 80px;
+        }
+
+        .summary-header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .summary-badge {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.15);
+            color: #A5B4FC;
+            border: 1px solid rgba(99, 102, 241, 0.35);
+            padding: 6px 14px;
+            border-radius: 9999px;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .summary-header h2 {
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: -0.8px;
+            margin-bottom: 10px;
+        }
+
+        .summary-header p {
+            font-size: 15px;
+            color: var(--text-sub);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .summary-card {
+            background: #18181B;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 26px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s ease;
+        }
+
+        .summary-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .summary-card.highlight {
+            background: linear-gradient(180deg, #1E1B4B 0%, #16161D 100%);
+            border-color: rgba(99, 102, 241, 0.5);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.18);
+        }
+
+        .sc-icon {
+            font-size: 32px;
+            margin-bottom: 14px;
+        }
+
+        .sc-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            color: #FFFFFF;
+        }
+
+        .sc-desc {
+            font-size: 13.5px;
+            color: var(--text-sub);
+            line-height: 1.65;
+            word-break: keep-all;
+        }
+
+        .sc-desc strong {
+            color: #FFFFFF;
+        }
+
+        /* Use Cases Grid (실전 활용 베스트 3) */
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+
+        .usecase-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.25s ease;
+        }
+
+        .usecase-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .uc-badge {
+            display: inline-block;
+            align-self: flex-start;
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--accent-emerald);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 6px;
+            margin-bottom: 16px;
+        }
+
+        .usecase-card h3 {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #FFFFFF;
+            line-height: 1.35;
+        }
+
+        .uc-desc {
+            font-size: 13.5px;
+            color: var(--text-sub);
+            line-height: 1.65;
+            margin-bottom: 18px;
+            word-break: keep-all;
+        }
+
+        .uc-example {
+            margin-top: auto;
+            background: #18181B;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 12px 14px;
+            font-size: 12px;
+            color: #CBD5E1;
+            line-height: 1.5;
+        }
+
+        .uc-example span {
+            color: var(--accent-amber);
+            font-weight: 700;
+        }
+
+        /* Keyboard Badges */
+        kbd {
+            display: inline-block;
+            background: #27272A;
+            border: 1px solid #3F3F46;
+            border-bottom: 2px solid #52525B;
+            border-radius: 4px;
+            padding: 2px 7px;
+            font-size: 11px;
+            font-weight: 800;
+            color: #FAFAFA;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+            font-family: inherit;
+        }
+
         /* 3-Step Section */
         .steps-wrap {
             display: grid;
@@ -758,6 +932,8 @@
             .nav-links { display: none; }
             .hero h1 { font-size: 32px; }
             .hero p { font-size: 15px; }
+            .summary-grid { grid-template-columns: 1fr; }
+            .usecase-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
             .showcase-box { grid-template-columns: 1fr; padding: 24px; }
             .steps-wrap { grid-template-columns: 1fr; }
@@ -778,9 +954,10 @@
                 <span>AutoPixel Studio</span>
             </div>
             <nav class="nav-links">
-                <a href="#features">기능 소개</a>
+                <a href="#summary">무슨 프로그램인가요?</a>
+                <a href="#usecases">실전 활용</a>
+                <a href="#guide">30초 사용법</a>
                 <a href="#multirunner">멀티 러너</a>
-                <a href="#guide">3단계 가이드</a>
                 <a href="#faq">자주 묻는 질문</a>
                 <a href="#support">고객지원</a>
             </nav>
@@ -799,19 +976,19 @@
                 <span>전 기능 무료 개방</span>
             </div>
             <h1>
-                단순 반복 업무 0%의 혁신,<br>
-                <span class="gradient-text">스마트 사무 보조 RPA 솔루션</span>
+                지루한 반복 클릭 노가다는 이제 그만,<br>
+                <span class="gradient-text">화면 인식 기반 무인 백그라운드 자동화</span>
             </h1>
             <p>
-                마우스 커서를 빼앗기지 않는 백그라운드 가상 입력 지원.<br>
-                엑셀 대량 복사-붙여넣기, 웹 쇼핑몰 등록, 24시간 실시간 모니터링을 코딩 없이 1분 만에 자동화하세요.
+                마우스 커서를 빼앗기지 않아 매크로 켜두고 웹서핑·영상 감상 가능!<br>
+                원하는 버튼을 마우스로 캡처만 해두면, 24시간 오차 없이 대신 눌러줍니다.
             </p>
             <div class="hero-actions">
                 <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-primary" id="heroDownloadBtn">
                     <span>⬇️ Windows용 무료 다운로드</span>
                 </a>
                 <a href="#guide" class="btn-secondary">
-                    <span>📖 1분 사용법 가이드</span>
+                    <span>⚡ 30초 사용법 가이드</span>
                 </a>
             </div>
             <div class="hero-guarantee">
@@ -826,7 +1003,7 @@
                     <span class="mockup-dot red"></span>
                     <span class="mockup-dot yellow"></span>
                     <span class="mockup-dot green"></span>
-                    <span class="mockup-title">AutoPixel Studio - [업무자동화_견적서_일괄추출.apx]</span>
+                    <span class="mockup-title">AutoPixel Studio - [화면인식_스마트_자동화.apx]</span>
                 </div>
                 <img src="web_assets/hero_preview.png" alt="AutoPixel Studio 메인 인터페이스" class="mockup-img">
             </div>
@@ -854,6 +1031,69 @@
             </div>
         </div>
     </div>
+
+    <!-- Summary Section (3초 요약 박스) -->
+    <section class="container" id="summary">
+        <div class="summary-box">
+            <div class="summary-header">
+                <span class="summary-badge">💡 3초 한눈에 보기</span>
+                <h2>"AutoPixel은 도대체 무슨 프로그램인가요?"</h2>
+                <p>초보자도 바로 이해하는 AutoPixel의 핵심 능력 3가지</p>
+            </div>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <div class="sc-icon">🎯</div>
+                    <div class="sc-title">화면 이미지 자동 탐색</div>
+                    <div class="sc-desc">누르고 싶은 버튼이나 아이콘을 마우스로 쓱 캡처해 두면, 프로그램이 화면 속에서 그 대상을 <strong>0.1초 만에 스스로 찾아냅니다.</strong> 창 위치나 크기가 달라져도 알아서 척척 찾아갑니다.</div>
+                </div>
+                <div class="summary-card highlight">
+                    <div class="sc-icon">🖱️</div>
+                    <div class="sc-title">마우스 안 뺏기는 백그라운드 클릭</div>
+                    <div class="sc-desc">내 마우스 커서를 마음대로 뺏어가지 않습니다! <strong>매크로가 보이지 않는 뒤에서 열심히 일하는 동안, 나는 내 마우스로 웹서핑, 유튜브, 다른 작업</strong>을 평소처럼 자유롭게 즐길 수 있습니다.</div>
+                </div>
+                <div class="summary-card">
+                    <div class="sc-icon">🔁</div>
+                    <div class="sc-title">24시간 무한 반복 & 다중 창</div>
+                    <div class="sc-desc">손가락 아프게 하루 종일 누르던 단순 반복 클릭 노가다를 컴퓨터 혼자서 밤새 대신 처리합니다. 창을 2개, 4개씩 띄워두고 <strong>동시에 돌릴 수도 있습니다.</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Use Cases Section (실전 활용 베스트 3) -->
+    <section class="container" id="usecases">
+        <div class="section-header">
+            <span class="section-tag">Best Use Cases</span>
+            <h2>이럴 때 쓰면 인생이 편해집니다!</h2>
+            <p>실제 사용자들이 가장 만족해하는 대표적인 활용 방식 3가지</p>
+        </div>
+        <div class="usecase-grid">
+            <div class="usecase-card">
+                <div class="uc-badge">사례 01</div>
+                <h3>🚨 팝업 / 확인창 0.1초 순삭 클릭</h3>
+                <p class="uc-desc">작업 도중 시도 때도 없이 불쑥 튀어나오는 '확인', '다시 시도', '대기 완료' 알림창을 사람이 일일이 기다릴 필요 없이, 화면에 뜨자마자 칼같이 눌러서 닫아줍니다.</p>
+                <div class="uc-example">
+                    <span>⚡ 활용 예:</span> 확인 팝업 자동 닫기, 다운로드 완료창 확인, 대기열 재시도 버튼 자동 클릭
+                </div>
+            </div>
+            <div class="usecase-card">
+                <div class="uc-badge">사례 02</div>
+                <h3>🔄 1번 ➔ 2번 ➔ 3번 버튼 순차 반복 조작</h3>
+                <p class="uc-desc">A 버튼 클릭 ➔ 3초 대기 ➔ B 버튼 클릭 ➔ 확인 팝업 클릭 같은 일련의 정해진 클릭 루틴을 한 치의 오차도 없이 사람이 누르듯 무한 반복합니다.</p>
+                <div class="uc-example">
+                    <span>⚡ 활용 예:</span> 정기 데이터 새로고침, 루틴성 메뉴 탐색 클릭, 수동 반복 작업 무인화
+                </div>
+            </div>
+            <div class="usecase-card">
+                <div class="uc-badge">사례 03</div>
+                <h3>🖥️ 창 여러 개(다중 창) 백그라운드 동시 가동</h3>
+                <p class="uc-desc">프로그램 창을 2개, 4개씩 모니터 구석에 켜두고 Multi-Runner로 동시 실행하면, 마우스 간섭 없이 각자 백그라운드에서 쌩쌩 돌아갑니다.</p>
+                <div class="uc-example">
+                    <span>⚡ 활용 예:</span> 다중 계정 창 동시 제어, 여러 개 프로그램 동시 모니터링 및 자동 클릭
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Core Features Section -->
     <section class="container" id="features">
@@ -945,33 +1185,32 @@
     <section class="container" id="guide">
         <div class="section-header">
             <span class="section-tag">How It Works</span>
-            <h2>1분 완성! 3단계 빠른 시작 가이드</h2>
-            <p>복잡한 코딩이나 스크립트 작성 없이 마우스 클릭만으로 매크로를 완성합니다.</p>
+            <h2>30초 완성! 초간단 1-2-3단계 가이드</h2>
+            <p>복잡한 코딩이나 공부가 필요 없습니다. 딱 3가지만 따라 하세요!</p>
         </div>
 
         <div class="steps-wrap">
             <div class="step-card">
                 <div class="step-card-header">
                     <span class="step-num">STEP 01</span>
-                    <span class="step-tag">🎯 대상 창 & 이미지 캡처</span>
+                    <span class="step-tag">🎯 대상 창 선택</span>
                 </div>
-                <h3>대상 창 지정 & 타겟 이미지 등록</h3>
+                <h3>자동화할 프로그램 창 콕 찍기</h3>
                 <p>
-                    <strong>[🎯 마우스로 창 선택]</strong>으로 자동화할 대상 프로그램(웹 브라우저, 엑셀, 사내 ERP 등)을 콕 찍고, 
-                    <strong>[📷 캡처]</strong> 버튼으로 클릭할 버튼이나 텍스트를 마우스로 드래그하여 즉시 등록합니다.
+                    프로그램 상단 <strong>[🎯 마우스로 창 선택]</strong> 버튼을 누른 후, 자동화하고 싶은 창(웹 브라우저, 업무 프로그램 등)을 마우스로 클릭하면 대상 창이 즉시 연결됩니다.
                 </p>
                 <div class="step-features">
                     <div class="step-feature-item">
                         <span class="chk">✓</span>
-                        <span>고유 창 핸들(HWND) 자동 추적 및 식별</span>
+                        <span>클릭 한 번으로 고유 창(HWND) 자동 추적</span>
                     </div>
                     <div class="step-feature-item">
                         <span class="chk">✓</span>
-                        <span>듀얼 및 멀티 모니터 완벽 지원</span>
+                        <span>창이 다른 창 뒤에 가려져 있어도 100% 인식</span>
                     </div>
                     <div class="step-feature-item">
                         <span class="chk">✓</span>
-                        <span>이미지 유사도(임계값) 0.1% 단위 정밀 조정</span>
+                        <span>듀얼/멀티 모니터 완벽 지원</span>
                     </div>
                 </div>
             </div>
@@ -979,25 +1218,24 @@
             <div class="step-card">
                 <div class="step-card-header">
                     <span class="step-num">STEP 02</span>
-                    <span class="step-tag">🧩 시각적 노코드 조립</span>
+                    <span class="step-tag">📷 버튼 캡처</span>
                 </div>
-                <h3>플로우차트로 액션 연결 & 테스트</h3>
+                <h3>누르고 싶은 버튼 네모 드래그</h3>
                 <p>
-                    등록한 이미지를 드래그하여 <strong>클릭(단타/더블/우클릭)</strong>, <strong>텍스트 타이핑</strong>, <strong>스마트 대기(지연)</strong>를 레고 블록처럼 이어줍니다. 
-                    <strong>[▶ 단독 테스트]</strong>로 실시간 사전 검증이 가능합니다.
+                    <strong>[📷 캡처]</strong> 버튼을 누르고 화면에서 누르고 싶은 버튼이나 아이콘을 마우스로 드래그하여 빨간 박스를 지정하면 타겟 이미지가 1초 만에 등록됩니다.
                 </p>
                 <div class="step-features">
                     <div class="step-feature-item">
                         <span class="chk">✓</span>
-                        <span>마우스 클릭, 드래그, 텍스트 자동 입력 지원</span>
+                        <span>마우스 드래그로 원하는 부위만 즉시 캡처</span>
                     </div>
                     <div class="step-feature-item">
                         <span class="chk">✓</span>
-                        <span>이미지 미발견 시 대기/재시도/건너뛰기 제어</span>
+                        <span>버튼 위치가 바뀌어도 알아서 자동 탐색</span>
                     </div>
                     <div class="step-feature-item">
                         <span class="chk">✓</span>
-                        <span>상단 [💾 저장] 버튼으로 단일 실행 패키지 완성</span>
+                        <span>단타 클릭, 더블 클릭, 스마트 대기 설정</span>
                     </div>
                 </div>
             </div>
@@ -1005,25 +1243,25 @@
             <div class="step-card">
                 <div class="step-card-header">
                     <span class="step-num">STEP 03</span>
-                    <span class="step-tag">🚀 멀티 무인 백그라운드</span>
+                    <span class="step-tag">▶ 즉시 실행</span>
                 </div>
-                <h3>Multi-Runner 다중 일괄 무인 가동</h3>
+                <h3><kbd>F5</kbd> 누르면 자동 시작!</h3>
                 <p>
-                    <strong>[멀티 실행]</strong> 탭에서 저장한 프로젝트를 불러온 뒤 <strong>[▶ 전체 일괄 시작]</strong>을 누르면 
-                    마우스 커서를 빼앗기지 않고 백그라운드 가상 입력으로 24시간 자동 실행됩니다.
+                    키보드 <kbd>F5</kbd>를 누르면 즉시 무인 자동화가 시작됩니다! 
+                    내 마우스를 전혀 빼앗지 않으며, 멈추고 싶을 때는 언제든 <kbd>F7</kbd>을 누르면 번개처럼 멈춥니다.
                 </p>
                 <div class="step-features">
                     <div class="step-feature-item">
                         <span class="chk">✓</span>
-                        <span>매크로 가동 중에도 내 마우스로 엑셀/웹서핑 자유 작업</span>
+                        <span>시작: <strong>[▶ 시작]</strong> 버튼 또는 단축키 <kbd>F5</kbd></span>
                     </div>
                     <div class="step-feature-item">
                         <span class="chk">✓</span>
-                        <span>창이 다른 창 뒤에 가려져 있어도 100% 정상 작동</span>
+                        <span>긴급 정지: 언제 어디서든 단축키 <kbd>F7</kbd></span>
                     </div>
                     <div class="step-feature-item">
                         <span class="chk">✓</span>
-                        <span>실시간 실행 횟수 및 성공/실패 로그 모니터링</span>
+                        <span>매크로 도는 중에도 내 마우스로 웹서핑/영상 시청 가능</span>
                     </div>
                 </div>
             </div>
@@ -1058,11 +1296,31 @@
         <div class="faq-list">
             <div class="faq-item">
                 <div class="faq-question">
+                    <span>Q. 스마트폰(모바일 앱)으로는 안 되나요?</span>
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    AutoPixel Studio는 고성능 Windows PC 전용 프로그램으로 제작되었습니다. 스마트폰 자체에는 설치되지 않지만, PC에서 실행되는 모든 창(웹 브라우저, 일반 소프트웨어, 원격 데스크톱 등)을 마우스 간섭 없이 완벽하게 자동 제어합니다.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
                     <span>Q. 매크로가 실행되는 동안 제 마우스로 다른 작업을 할 수 있나요?</span>
                     <span>▼</span>
                 </div>
                 <div class="faq-answer">
-                    네, 가능합니다! AutoPixel Studio의 기본 모드는 '백그라운드 가상 입력' 방식입니다. 마우스 커서를 직접 물리적으로 움직이지 않고 프로그램 창 내부에 직접 클릭 및 키보드 신호를 전달하므로, 매크로가 도는 동안에도 웹서핑이나 문서 작성을 자유롭게 하실 수 있습니다.
+                    네, 100% 가능합니다! AutoPixel Studio의 핵심 기술은 '백그라운드 가상 입력' 방식입니다. 마우스 커서를 물리적으로 강제 이동시키지 않고 창 내부로 직접 가상 클릭 신호를 보내기 때문에, 매크로가 도는 동안에도 내 마우스로 웹서핑, 유튜브 감상, 다른 문서 작업을 자유롭게 하실 수 있습니다.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Q. 초보자라 사용법이 어려울까 봐 걱정되는데 매뉴얼이 있나요?</span>
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    전혀 걱정하지 않으셔도 됩니다! 복잡한 프로그램 설치나 코딩 공부가 일절 필요 없으며, 프로그램 상단 메뉴에 <strong>[📖 3단계 가이드]</strong> 탭이 기본 내장되어 있어 프로그램 안에서도 그림과 함께 쉽게 따라 하실 수 있습니다. [창 선택 ➔ 버튼 캡처 ➔ F5 시작] 딱 3단계면 30초 만에 누구나 매크로를 완성할 수 있습니다.
                 </div>
             </div>
 
