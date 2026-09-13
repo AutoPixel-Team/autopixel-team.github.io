@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoPixel 시뮬레이터 - [자동화_업무_테스트]</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <style>
+        :root {
+            --bg: #0C0D12;
+            --panel: #161822;
+            --panel-border: #2A2D3D;
+            --primary: #6366F1;
+            --emerald: #10B981;
+            --amber: #F59E0B;
+            --text-main: #FFFFFF;
+            --text-sub: #94A3B8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Pretendard', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .window-frame {
+            width: 680px;
+            background: var(--panel);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+            overflow: hidden;
+        }
+
+        .window-header {
+            background: #10121A;
+            padding: 12px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--panel-border);
+        }
+
+        .window-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-sub);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dots {
+            display: flex;
+            gap: 7px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+        .dot-r { background: #EF4444; }
+        .dot-y { background: #F59E0B; }
+        .dot-g { background: #10B981; }
+
+        .content {
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .card {
+            background: #11131C;
+            border: 1px solid var(--panel-border);
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .card-header {
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--text-sub);
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 13px 18px;
+            font-size: 14px;
+            font-weight: 800;
+            color: #FFFFFF;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            border: none;
+            width: 100%;
+        }
+
+        .btn-start {
+            background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+            border: 1px solid #818CF8;
+            box-shadow: 0 4px 16px rgba(99, 102, 241, 0.35);
+        }
+
+        .btn-start:hover {
+            filter: brightness(1.15);
+            transform: translateY(-1px);
+        }
+
+        .btn-start:active {
+            transform: scale(0.98);
+        }
+
+        /* 팝업 모달 박스 (게임의 확인/보상 팝업과 동일한 구조) */
+        .popup-box {
+            background: linear-gradient(180deg, #1C1E2C 0%, #151722 100%);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            border-radius: 10px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .popup-badge {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--amber);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+
+        .popup-title {
+            font-size: 16px;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+
+        .popup-desc {
+            font-size: 12.5px;
+            color: var(--text-sub);
+        }
+
+        .btn-confirm {
+            background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+            color: #FFFFFF;
+            border: 1px solid #34D399;
+            box-shadow: 0 4px 20px rgba(16, 185, 129, 0.3);
+            padding: 11px 24px;
+            font-size: 13.5px;
+            font-weight: 800;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            width: 100%;
+            max-width: 220px;
+        }
+
+        .btn-confirm:hover {
+            filter: brightness(1.15);
+            transform: translateY(-1px);
+        }
+
+        .btn-confirm:active {
+            transform: scale(0.98);
+        }
+
+        /* 상태바 */
+        .status-bar {
+            background: #10121A;
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            padding: 10px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12.5px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--emerald);
+            font-weight: 700;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--emerald);
+        }
+
+        .counter-num {
+            font-size: 15px;
+            font-weight: 900;
+            color: #A5B4FC;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="window-frame">
+        <div class="window-header">
+            <div class="window-title">
+                <span>⚡ AutoPixel 테스트 시뮬레이터</span>
+                <span style="color: #4B5563;">|</span>
+                <span style="color: #A5B4FC; font-size: 11px;">[Task_Simulator.exe]</span>
+            </div>
+            <div class="dots">
+                <span class="dot dot-r"></span>
+                <span class="dot dot-y"></span>
+                <span class="dot dot-g"></span>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="status-bar">
+                <div class="status-badge">
+                    <span class="pulse-dot"></span>
+                    <span>시뮬레이터 대상 창 준비 완료 (READY)</span>
+                </div>
+                <div>
+                    자동 클릭 감지: <span class="counter-num" id="clickCount">0</span> 회
+                </div>
+            </div>
+
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-header">
+                        <span>ROUTINE ACTION</span>
+                        <span style="color: var(--primary);">STEP 01</span>
+                    </div>
+                    <div class="card-body">
+                        <p style="font-size: 12px; color: var(--text-sub);">반복 실행할 타겟 버튼:</p>
+                        <button class="btn-action btn-start" id="btnStart" onclick="handleClick()">
+                            <span>🚀</span>
+                            <span>작업 루틴 시작</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <span>DATA REFRESH</span>
+                        <span style="color: #38BDF8;">STEP 02</span>
+                    </div>
+                    <div class="card-body">
+                        <p style="font-size: 12px; color: var(--text-sub);">주기적 갱신 타겟 버튼:</p>
+                        <button class="btn-action" style="background: #1E293B; border: 1px solid #334155;" onclick="handleClick()">
+                            <span>🔄</span>
+                            <span>데이터 새로고침</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="popup-box">
+                <span class="popup-badge">🔔 시스템 알림 대화상자</span>
+                <div class="popup-title">주기적 작업 완료 및 확인 대기</div>
+                <div class="popup-desc">
+                    반복 작업 루틴이 정상 완료되었습니다. 확인 버튼을 누르면 다음 작업으로 자동 전환됩니다.
+                </div>
+                <button class="btn-confirm" id="btnConfirm" onclick="handleClick()">
+                    <span>✓ [확인] 및 다음 단계</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var count = 0;
+        function handleClick() {
+            count++;
+            var el = document.getElementById('clickCount');
+            el.innerText = count;
+            el.style.color = '#10B981';
+            setTimeout(function() { el.style.color = '#A5B4FC'; }, 200);
+        }
+    </script>
+</body>
+</html>
