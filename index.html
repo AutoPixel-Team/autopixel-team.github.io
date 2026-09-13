@@ -1572,6 +1572,335 @@
             .hero-actions { flex-direction: column; }
             .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
         }
+    
+        /* Hero VIP Incentive Badge */
+        .hero-vip-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.12) 0%, rgba(245, 158, 11, 0.1) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-radius: 12px;
+            padding: 12px 20px;
+            max-width: 780px;
+            margin: 0 auto 20px;
+            font-size: 13.5px;
+            color: #E2E8F0;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .vip-icon {
+            font-size: 22px;
+            flex-shrink: 0;
+        }
+
+        .vip-text {
+            flex-grow: 1;
+            line-height: 1.5;
+        }
+
+        .vip-text strong {
+            color: #FBBF24;
+        }
+
+        .vip-link-btn {
+            background: #FEE500;
+            color: #191919;
+            font-weight: 800;
+            font-size: 12px;
+            padding: 7px 14px;
+            border-radius: 6px;
+            white-space: nowrap;
+            flex-shrink: 0;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .vip-link-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(254, 229, 0, 0.4);
+        }
+
+        /* Upgraded Beta Banner & Perks */
+        .beta-tag-badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.15);
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            color: #FBBF24;
+            font-size: 11.5px;
+            font-weight: 900;
+            padding: 4px 12px;
+            border-radius: 20px;
+            margin-bottom: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .beta-perks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 28px 0 32px;
+            text-align: left;
+        }
+
+        .beta-perk-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 22px 20px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.2s ease;
+        }
+
+        .beta-perk-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .beta-perk-card.highlight {
+            background: linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, rgba(24, 24, 27, 0.8) 100%);
+            border-color: rgba(245, 158, 11, 0.45);
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15);
+        }
+
+        .perk-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .beta-perk-card h4 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .beta-perk-card.highlight h4 {
+            color: #FBBF24;
+        }
+
+        .beta-perk-card p {
+            font-size: 13px;
+            color: var(--text-sub);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .beta-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+        }
+
+        .btn-kakao-chat {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #FEE500;
+            color: #191919;
+            font-weight: 800;
+            font-size: 15px;
+            padding: 13px 26px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-kakao-chat:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(254, 229, 0, 0.35);
+        }
+
+        /* Download Interception Modal */
+        .download-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+            padding: 20px;
+        }
+
+        .download-modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .download-modal-box {
+            background: #141418;
+            border: 1px solid #3F3F46;
+            border-radius: 18px;
+            max-width: 520px;
+            width: 100%;
+            padding: 32px 28px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+            position: relative;
+            transform: translateY(15px);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: center;
+        }
+
+        .download-modal-overlay.active .download-modal-box {
+            transform: translateY(0);
+        }
+
+        .modal-close-btn {
+            position: absolute;
+            top: 16px;
+            right: 18px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 22px;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.2s;
+        }
+
+        .modal-close-btn:hover {
+            color: var(--text-main);
+        }
+
+        .modal-header-icon {
+            font-size: 40px;
+            margin-bottom: 12px;
+            line-height: 1;
+        }
+
+        .download-modal-box h3 {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .download-modal-box .sub-desc {
+            font-size: 13.5px;
+            color: var(--text-sub);
+            margin-bottom: 22px;
+        }
+
+        .modal-perk-box {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1) 0%, rgba(99, 102, 241, 0.08) 100%);
+            border: 1px solid rgba(245, 158, 11, 0.35);
+            border-radius: 12px;
+            padding: 16px 18px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .modal-perk-title {
+            font-size: 13.5px;
+            font-weight: 800;
+            color: #FBBF24;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .modal-steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            font-size: 12.5px;
+            color: #E2E8F0;
+        }
+
+        .modal-steps-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            line-height: 1.45;
+        }
+
+        .modal-step-num {
+            background: #F59E0B;
+            color: #000;
+            font-weight: 900;
+            font-size: 10px;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .modal-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .modal-kakao-btn {
+            background: #FEE500;
+            color: #191919;
+            font-weight: 800;
+            font-size: 15px;
+            padding: 13px;
+            border-radius: 10px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+
+        .modal-kakao-btn:hover {
+            box-shadow: 0 4px 16px rgba(254, 229, 0, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .modal-later-btn {
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-sub);
+            font-size: 13px;
+            font-weight: 600;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: var(--font);
+        }
+
+        .modal-later-btn:hover {
+            color: var(--text-main);
+            border-color: var(--border-hover);
+        }
+
+        @media (max-width: 768px) {
+            .hero-vip-badge { flex-direction: column; text-align: center; gap: 10px; }
+            .beta-perks-grid { grid-template-columns: 1fr; }
+            .beta-actions { flex-direction: column; }
+            .beta-actions a { width: 100%; justify-content: center; }
+        }
+
     </style>
 </head>
 <body>
@@ -1616,12 +1945,21 @@
                 원하는 버튼을 마우스로 캡처만 해두면, 24시간 오차 없이 대신 눌러줍니다.
             </p>
             <div class="hero-actions">
-                <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-primary" id="heroDownloadBtn">
+                <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-primary download-trigger" id="heroDownloadBtn">
                     <span>⬇️ Windows용 무료 다운로드</span>
                 </a>
                 <a href="#guide" class="btn-secondary">
-                    <span>⚡ 30초 사용법 가이드</span>
+                    <span>⚡ 30초 실전 가이드</span>
                 </a>
+            </div>
+
+            <!-- Special VIP Early Bird Callout -->
+            <div class="hero-vip-badge">
+                <span class="vip-icon">🎁</span>
+                <div class="vip-text">
+                    <strong>[오픈 베타 테스터 혜택]</strong> 간단한 사용 후기 또는 버그 제보만 남겨주셔도 정식 출시 시 <strong>'1년 프리미엄 이용권'</strong>을 전원 100% 증정합니다!
+                </div>
+                <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank" class="vip-link-btn">💬 익명 오픈채팅 입장</a>
             </div>
             <div class="hero-guarantee">
                 <span>✓ Windows 10/11 완벽 지원</span>
@@ -2163,19 +2501,47 @@
         </div>
     </section>
 
-    <!-- Beta Benefit Banner -->
-    <div class="container">
+    <!-- Beta Benefit Banner & Founders Event -->
+    <div class="container" id="beta-event">
         <div class="beta-banner">
-            <h3>🎉 오픈 베타(Open Beta) 전 기능 무료 체험</h3>
+            <span class="beta-tag-badge">👑 FOUNDERS TESTER EVENT</span>
+            <h3>오픈 베타 테스터 전원 혜택: '1년 프리미엄 이용권' 증정</h3>
             <p>
-                현재 AutoPixel Studio는 오픈 베타 테스트 기간으로, 복잡한 결제나 카드 등록 없이 
-                누구나 Studio 매크로 제작과 Multi-Runner 다중 실행 전체를 무료로 이용하실 수 있습니다.
+                AutoPixel Studio의 초기 발전에 기여해 주세요!<br>
+                프로그램을 사용해 보시고 <strong>간단한 사용 후기나 버그 제보</strong>만 편하게 알려주셔도<br>
+                정식 출시 시 <strong>[1년 프리미엄 이용권]</strong>을 100% 전원 지급해 드립니다.
             </p>
-            <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-primary" id="bannerDownloadBtn">
-                <span>⬇️ 오픈 베타 무료 다운로드</span>
-            </a>
+
+            <!-- 3 Benefit Cards Grid -->
+            <div class="beta-perks-grid">
+                <div class="beta-perk-card">
+                    <div class="perk-icon">⚡</div>
+                    <h4>전 기능 100% 무료</h4>
+                    <p>오픈 베타 기간 동안 매크로 제작 및 Multi-Runner 다중 실행까지 제한 없이 무료 이용</p>
+                </div>
+                <div class="beta-perk-card highlight">
+                    <div class="perk-icon">👑</div>
+                    <h4>1년 프리미엄 증정</h4>
+                    <p>간단한 사용 후기나 버그 제보 작성 시 1년 프리미엄 이용 권한 100% 지급</p>
+                </div>
+                <div class="beta-perk-card">
+                    <div class="perk-icon">💬</div>
+                    <h4>100% 익명 소통</h4>
+                    <p>개인정보 노출 없는 100% 익명 오픈채팅으로 부담 없는 건의 & 개발자와의 실시간 1:1 빠른 소통</p>
+                </div>
+            </div>
+
+            <div class="beta-actions">
+                <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-primary download-trigger" id="bannerDownloadBtn">
+                    <span>⬇️ 오픈 베타 무료 다운로드</span>
+                </a>
+                <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank" class="btn-kakao-chat">
+                    <span>💬 익명 오픈채팅으로 피드백 남기기</span>
+                </a>
+            </div>
+
             <div class="beta-warn-text">
-                ※ 본 프로그램은 현재 오픈 베타테스트 진행 중으로, 서비스 정책 및 테스트 종료 시 언제든 유료 전환될 수 있습니다.
+                ※ 소중한 후기나 버그를 남겨주신 모든 테스터분들께 1년 프리미엄 무료 권한이 지급됩니다.
             </div>
         </div>
     </div>
@@ -2368,15 +2734,20 @@
                 <div style="display: flex; justify-content: center; margin-bottom: 16px;">
                     <img src="web_assets/kakao_QR.png" alt="카카오톡 1:1 오픈채팅 QR코드" style="width: 175px; height: 175px; border-radius: 12px; border: 2px solid var(--border); box-shadow: 0 4px 16px rgba(0,0,0,0.4);" onerror="this.src='web_assets/kakao_QR.png'">
                 </div>
-                <h4 style="margin-bottom: 6px; font-size: 16px; color: var(--text-main);">카카오톡 1:1 오픈채팅</h4>
-                <p style="margin-bottom: 6px; font-size: 13px; color: var(--accent-amber); font-weight: 600;">
+                <div style="display: inline-block; background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.35); color: #FBBF24; font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 20px; margin-bottom: 10px;">
+                    👑 1년 프리미엄 혜택 신청 창구
+                </div>
+                <h4 style="margin-bottom: 6px; font-size: 17px; font-weight: 800; color: var(--text-main);">100% 익명 오픈채팅</h4>
+                <p style="margin-bottom: 8px; font-size: 13px; color: #FBBF24; font-weight: 600;">
                     스마트폰 카메라로 QR 코드를 스캔하세요
                 </p>
-                <p style="margin-bottom: 18px; font-size: 12px; color: var(--text-sub); line-height: 1.5;">
-                    PC 카카오톡을 이용 중이시라면 아래 버튼을 클릭하여 상담방으로 바로 이동하실 수 있습니다.
+                <p style="margin-bottom: 18px; font-size: 12.5px; color: var(--text-sub); line-height: 1.55;">
+                    개인정보 노출 없는 100% 익명 오픈채팅입니다.<br>
+                    간단한 사용 후기나 버그를 편하게 남겨주시면<br>
+                    <strong>1년 프리미엄 이용권</strong>을 100% 전원 발급해 드립니다!
                 </p>
-                <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px; font-size: 14px; font-weight: 700; background: #FEE500; color: #191919; border: none; border-radius: 8px; text-decoration: none; cursor: pointer; transition: filter 0.2s;" onmouseover="this.style.filter='brightness(0.92)'" onmouseout="this.style.filter='brightness(1.0)'">
-                    <span style="font-size: 16px;">💬</span> 카카오톡 1:1 오픈채팅 열기
+                <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 13px; font-size: 14px; font-weight: 800; background: #FEE500; color: #191919; border: none; border-radius: 8px; text-decoration: none; cursor: pointer; transition: filter 0.2s;" onmouseover="this.style.filter='brightness(0.92)'" onmouseout="this.style.filter='brightness(1.0)'">
+                    <span style="font-size: 16px;">💬</span> 익명 오픈채팅 열고 프리미엄 혜택받기
                 </a>
                 <p style="font-size: 11px; color: var(--text-muted); margin-top: 14px;">
                     운영 시간: 상시 문의 가능 (확인 즉시 친절히 답변 드립니다)
@@ -2699,6 +3070,87 @@
                     });
                 }, { threshold: 0.2 });
                 observer.observe(guideSec);
+            }
+        });
+    </script>
+
+
+    <!-- Download Interception Modal (VIP Perks Notification) -->
+    <div class="download-modal-overlay" id="downloadModal">
+        <div class="download-modal-box">
+            <button type="button" class="modal-close-btn" onclick="closeDownloadModal()">&times;</button>
+            <div class="modal-header-icon">🎉</div>
+            <h3>다운로드가 시작되었습니다!</h3>
+            <p class="sub-desc">
+                <code>AutoPixel_Studio.exe</code> 파일이 다운로드됩니다.<br>
+                별도 설치나 압축 해제 없이 바로 실행하실 수 있습니다.
+            </p>
+
+            <div class="modal-perk-box">
+                <div class="modal-perk-title">
+                    <span>👑</span>
+                    <span>'1년 프리미엄 이용권' 무료 증정 이벤트</span>
+                </div>
+                <ul class="modal-steps-list">
+                    <li>
+                        <span class="modal-step-num">1</span>
+                        <span>다운로드된 프로그램을 실행하여 사용해 봅니다.</span>
+                    </li>
+                    <li>
+                        <span class="modal-step-num">2</span>
+                        <span>아래 익명 오픈채팅방에 접속하여 <strong>어떤 작업에 써보셨는지 간단한 후기나 버그 제보</strong>를 남겨주세요.</span>
+                    </li>
+                    <li>
+                        <span class="modal-step-num">3</span>
+                        <span>정식 출시 시 작성해주신 닉네임으로 <strong>1년 프리미엄 이용권</strong>을 전원 발급해 드립니다!</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="modal-actions">
+                <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank" class="modal-kakao-btn" onclick="closeDownloadModal()">
+                    <span>💬 익명 오픈채팅방 입장하고 프리미엄 혜택 예약</span>
+                </a>
+                <button type="button" class="modal-later-btn" onclick="closeDownloadModal()">
+                    다음에 하기 (닫기)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openDownloadModal() {
+            const modal = document.getElementById('downloadModal');
+            if (modal) {
+                modal.classList.add('active');
+            }
+        }
+
+        function closeDownloadModal() {
+            const modal = document.getElementById('downloadModal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        // Attach modal trigger to all download buttons
+        document.addEventListener('DOMContentLoaded', () => {
+            const downloadBtns = document.querySelectorAll('.download-trigger, #heroDownloadBtn, #bannerDownloadBtn');
+            downloadBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Give a slight delay so browser download initiates
+                    setTimeout(openDownloadModal, 400);
+                });
+            });
+
+            // Close modal when clicking outside box
+            const modal = document.getElementById('downloadModal');
+            if (modal) {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        closeDownloadModal();
+                    }
+                });
             }
         });
     </script>
