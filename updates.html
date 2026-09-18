@@ -80,6 +80,7 @@
             align-items: center;
             justify-content: space-between;
             height: 70px;
+            gap: 16px;
         }
 
         .logo-box {
@@ -89,6 +90,8 @@
             font-weight: 800;
             font-size: 18px;
             letter-spacing: -0.5px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .logo-badge {
@@ -99,14 +102,21 @@
             padding: 4px 8px;
             border-radius: 6px;
             letter-spacing: 0.5px;
+            flex-shrink: 0;
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
+            gap: 20px;
             font-size: 14px;
             font-weight: 600;
             color: var(--text-sub);
+            white-space: nowrap;
+            align-items: center;
+        }
+
+        .nav-links a {
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -126,6 +136,8 @@
             border-radius: 6px;
             border: 1px solid var(--primary-light);
             transition: all 0.2s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .btn-nav-download:hover {
@@ -535,13 +547,12 @@
                         <div class="cat-card">
                             <div class="cat-title">
                                 <span class="cat-title-indicator"></span>
-                                <span>5. 멀티 윈도우 러너 & UI·안정성 최적화</span>
+                                <span>5. 멀티 윈도우 러너 & UI 디자인 최적화</span>
                             </div>
                             <ul class="cat-list">
                                 <li><strong>동시 병렬 실행 모드:</strong> 동일한 프로그램이나 창을 여러 개 띄워두었을 때, 체크박스로 여러 창을 선택하여 한 번에 일괄 동시 병렬 실행이 가능합니다.</li>
                                 <li><strong>창 재실행 시 자동 핸들(HWND) 복원:</strong> 대상 창이 재부팅되거나 닫혔다 다시 열려도 프로세스명과 창 제목을 매핑하여 자동으로 타깃 핸들을 찾아 복원합니다.</li>
                                 <li><strong>모던 무채색 벡터 아이콘 통일:</strong> 열기, 저장, 멀티 실행, 폴더, 시계 등의 컬러 이모티콘을 단정하고 세련된 무채색 벡터 아이콘으로 통일했습니다.</li>
-                                <li><strong>시스템 안정성 수정:</strong> appack 프로젝트 불러오기 오류 수정 및 다이얼로그 호출 시 발생하던 QWidgetWindow 시스템 경고 메시지를 원천 제거했습니다.</li>
                             </ul>
                         </div>
 
@@ -565,7 +576,6 @@
                         </div>
                     </div>
                     <ul class="cat-list">
-                        <li><strong>Windows 11 백신 오진 방지:</strong> Nuitka C++ LTO 네이티브 컴파일 적용으로 Windows Defender 휴리스틱 바이러스 오진 문제 원천 차단</li>
                         <li><strong>클라우드 라이선스 세션 안정화:</strong> OBT 기간 동안 30일 무료 라이선스 검증 및 자동 갱신 로직 강화</li>
                         <li><strong>대상 창 선택 UI 반응성 개선:</strong> 윈도우 목록 새로고침 속도 향상 및 DPI 스케일링 보정</li>
                     </ul>
