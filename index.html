@@ -80,6 +80,7 @@
             align-items: center;
             justify-content: space-between;
             height: 70px;
+            gap: 16px;
         }
 
         .logo-box {
@@ -89,6 +90,8 @@
             font-weight: 800;
             font-size: 18px;
             letter-spacing: -0.5px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .logo-badge {
@@ -99,14 +102,21 @@
             padding: 4px 8px;
             border-radius: 6px;
             letter-spacing: 0.5px;
+            flex-shrink: 0;
         }
 
         .nav-links {
             display: flex;
-            gap: 28px;
+            gap: 20px;
             font-size: 14px;
             font-weight: 600;
             color: var(--text-sub);
+            white-space: nowrap;
+            align-items: center;
+        }
+
+        .nav-links a {
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -122,6 +132,8 @@
             border-radius: 6px;
             border: 1px solid var(--primary-light);
             transition: all 0.2s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .btn-nav-download:hover {
@@ -1913,13 +1925,13 @@
                 <span>AutoPixel Studio</span>
             </div>
             <nav class="nav-links">
-                <a href="#guide" style="color: var(--primary-light); font-weight: 700;">⚡ 실전 가이드</a>
-                <a href="#summary">무슨 프로그램인가요?</a>
+                <a href="#guide" style="color: var(--primary-light); font-weight: 700;">⚡ 가이드</a>
+                <a href="#summary">소개</a>
                 <a href="#usecases">실전 활용</a>
                 <a href="#comparison">타사 비교</a>
                 <a href="#multirunner">멀티 러너</a>
-                <a href="updates.html" style="color: var(--accent-emerald); font-weight: 700;">📢 업데이트 (v1.2.0)</a>
-                <a href="#faq">자주 묻는 질문</a>
+                <a href="updates.html" style="color: var(--accent-emerald); font-weight: 700;">업데이트 내역</a>
+                <a href="#faq">FAQ</a>
                 <a href="#support">고객지원</a>
             </nav>
             <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-nav-download" id="topDownloadBtn">
