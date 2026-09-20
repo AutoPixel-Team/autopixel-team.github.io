@@ -948,14 +948,25 @@
                             </td>
                         </tr>
                         <tr>
-                            <td><strong>해상도 & 창 크기 변화</strong></td>
+                            <td><strong>창 위치 이동 대응</strong></td>
                             <td>
-                                <span class="comp-badge-no">✕</span><strong>크기 변경 시 오작동</strong><br>
-                                <span style="font-size: 13px; color: var(--text-muted);">좌표가 틀어져 매크로가 엉뚱한 곳을 클릭하고 꼬임</span>
+                                <span class="comp-badge-no">✕</span><strong>창 이동 시 허공 클릭 (오작동)</strong><br>
+                                <span style="font-size: 13px; color: var(--text-muted);">창 위치가 바뀌면 옛날 좌표를 허공 클릭하여 바로 꼬임</span>
                             </td>
                             <td class="col-target">
-                                <span class="comp-badge-yes">✓</span><strong>스마트 크기 복원 & 자동 보정</strong><br>
-                                <span style="font-size: 13px; color: var(--primary);">제작 당시 창 크기 1초 복원 및 비율 자동 보정</span>
+                                <span class="comp-badge-yes">✓</span><strong>실시간 비전 락온 & 자동 추적</strong><br>
+                                <span style="font-size: 13px; color: var(--primary);">창을 화면 어디로 옮겨도 버튼을 끝까지 따라붙어 100% 적중</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>창 크기 & 해상도 변화</strong></td>
+                            <td>
+                                <span class="comp-badge-no">✕</span><strong>크기 변경 시 영구 오작동</strong><br>
+                                <span style="font-size: 13px; color: var(--text-muted);">해상도가 틀어지면 스크립트 전체를 재작성해야 함</span>
+                            </td>
+                            <td class="col-target">
+                                <span class="comp-badge-yes">✓</span><strong>원클릭 해상도 기억 & 크기 복원</strong><br>
+                                <span style="font-size: 13px; color: var(--primary);">제작 당시의 가로x세로 최적 크기를 1초 만에 강제 원상 복구</span>
                             </td>
                         </tr>
                         <tr>
@@ -995,7 +1006,7 @@
                         ✦ 1. 창 가림 100% 관통 시연
                     </button>
                     <button class="comp-tab-btn" id="tabBtnTracking" onclick="switchCompDemo('tracking')">
-                        ✦ 2. 창 위치·크기 실시간 추적 시연
+                        ✦ 2. 창 위치 이동 실시간 추적 시연
                     </button>
                 </div>
 
