@@ -4,23 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoPixel Studio - 공식 시각 기능 도감</title>
-    <meta name="description" content="실제 프로그램 화면과 각 버튼별 크롭 이미지를 통해 직관적으로 배우는 AutoPixel Studio 상세 사용 설명서입니다.">
+    <meta name="description" content="초경량 간편 모드와 정밀 스튜디오 모드, 실제 프로그램 화면과 크롭 이미지를 통해 직관적으로 배우는 AutoPixel Studio 상세 사용 설명서입니다.">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
     <style>
         :root {
-            --bg: #09090B;
-            --card-bg: #121215;
-            --card-hover: #18181B;
-            --border: #27272A;
-            --border-hover: #3F3F46;
+            --bg: #F8FAFC;
+            --surface: #FFFFFF;
+            --surface-hover: #F1F5F9;
+            --border: #E2E8F0;
+            --border-hover: #CBD5E1;
             --primary: #4F46E5;
-            --primary-light: #6366F1;
+            --primary-hover: #4338CA;
+            --primary-light: #EEF2FF;
+            --primary-border: #C7D2FE;
             --accent-emerald: #10B981;
-            --text-main: #FAFAFA;
-            --text-sub: #A1A1AA;
-            --text-muted: #71717A;
+            --accent-sky: #0284C7;
+            --accent-amber: #D97706;
+            --text-main: #0F172A;
+            --text-sub: #475569;
+            --text-muted: #94A3B8;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
             --font: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
         }
 
@@ -55,7 +62,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(9, 9, 11, 0.92);
+            background: rgba(255, 255, 255, 0.92);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
@@ -64,7 +71,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 70px;
+            height: 68px;
             gap: 16px;
         }
 
@@ -75,134 +82,187 @@
             font-weight: 800;
             font-size: 18px;
             letter-spacing: -0.5px;
+            color: var(--text-main);
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
         .logo-badge {
             background: var(--primary);
             color: #FFFFFF;
             font-size: 11px;
-            font-weight: 900;
-            padding: 3px 7px;
-            border-radius: 4px;
-            letter-spacing: 0.5px;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 6px;
         }
 
         .nav-links {
             display: flex;
-            gap: 24px;
-            font-size: 14px;
+            gap: 28px;
+            font-size: 14.5px;
             font-weight: 600;
             color: var(--text-sub);
             align-items: center;
         }
 
         .nav-links a:hover {
-            color: var(--text-main);
+            color: var(--primary);
         }
 
-        .nav-active {
-            color: var(--primary-light) !important;
+        .nav-links a.nav-active {
+            color: var(--primary);
+            font-weight: 700;
         }
 
         .btn-nav-download {
             background: var(--primary);
             color: #FFFFFF;
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 700;
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid var(--primary-light);
-            transition: background 0.2s ease;
+            padding: 9px 18px;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
+            white-space: nowrap;
         }
 
         .btn-nav-download:hover {
-            background: #4338CA;
+            background: var(--primary-hover);
+            transform: translateY(-1px);
         }
 
         /* Hero */
         .guide-hero {
-            padding: 60px 0 40px;
-            border-bottom: 1px solid var(--border);
+            padding: 56px 0 36px;
+            text-align: center;
         }
 
         .hero-tag {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-light);
+            border: 1px solid var(--primary-border);
+            color: var(--primary);
             font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--primary-light);
-            text-transform: uppercase;
-            margin-bottom: 12px;
+            font-weight: 800;
+            padding: 5px 14px;
+            border-radius: 9999px;
+            margin-bottom: 18px;
+            letter-spacing: 0.5px;
         }
 
         .guide-hero h1 {
-            font-size: 32px;
-            font-weight: 800;
-            letter-spacing: -0.8px;
-            margin-bottom: 12px;
-            line-height: 1.3;
+            font-size: 36px;
+            font-weight: 900;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            margin-bottom: 14px;
         }
 
         .guide-hero p {
             font-size: 16px;
             color: var(--text-sub);
-            max-width: 860px;
-            line-height: 1.6;
+            max-width: 680px;
+            margin: 0 auto 32px;
+            line-height: 1.65;
         }
 
-        /* Quick Navigation Bar */
+        /* Sub Navigation Bar */
         .subnav-bar {
-            background: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 12px 20px;
-            margin: 30px 0 40px;
             display: flex;
             flex-wrap: wrap;
-            gap: 16px;
-            font-size: 13px;
-            font-weight: 600;
+            justify-content: center;
+            gap: 8px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 8px;
+            box-shadow: var(--shadow-sm);
         }
 
         .subnav-bar a {
-            color: var(--text-sub);
-            display: inline-flex;
+            display: flex;
             align-items: center;
             gap: 6px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-sub);
+            transition: all 0.15s ease;
         }
 
         .subnav-bar a:hover {
-            color: var(--text-main);
+            background: var(--surface-hover);
+            color: var(--primary);
         }
 
         .subnav-num {
-            font-family: monospace;
-            background: rgba(255, 255, 255, 0.08);
+            background: var(--primary-light);
+            color: var(--primary);
+            font-size: 11px;
+            font-weight: 800;
             padding: 2px 6px;
             border-radius: 4px;
-            font-size: 11px;
-            color: var(--text-main);
         }
 
-        /* Screenshot Presentation */
+        /* Section Layout */
+        .guide-section {
+            padding: 48px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section-header {
+            margin-bottom: 28px;
+        }
+
+        .sec-badge {
+            display: inline-block;
+            font-size: 11.5px;
+            font-weight: 800;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 3px 10px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .guide-section h2 {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .guide-section p {
+            font-size: 14.5px;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        /* Visual Window Mockup */
         .ui-visual-wrapper {
-            margin: 25px 0 50px;
-            background: var(--card-bg);
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin-bottom: 28px;
         }
 
         .ui-visual-header {
-            background: #18181B;
-            padding: 12px 20px;
+            background: #F1F5F9;
+            padding: 10px 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid var(--border);
-            font-size: 13px;
-            font-weight: 600;
+            font-size: 12px;
             color: var(--text-sub);
+            font-weight: 600;
         }
 
         .ui-dots {
@@ -214,246 +274,296 @@
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: #3F3F46;
+            background: #CBD5E1;
         }
 
         .ui-visual-img {
             width: 100%;
+            height: auto;
             display: block;
-            border-bottom: 1px solid var(--border);
         }
 
         .ui-visual-caption {
-            padding: 14px 20px;
-            font-size: 13px;
-            color: var(--text-muted);
-            background: #121215;
+            background: #F8FAFC;
+            padding: 12px 18px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 12.5px;
+            color: var(--text-sub);
+            font-weight: 600;
+        }
+
+        /* Compact Split Grid for Section 01 */
+        .compact-guide-grid {
+            display: grid;
+            grid-template-columns: 420px 1fr;
+            gap: 32px;
+            align-items: start;
+            background: var(--surface);
+            border: 1px solid var(--primary-border);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .compact-mockup-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .compact-mockup-frame {
+            background: #F1F5F9;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .compact-mockup-img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .compact-steps-col {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .compact-step-item {
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 20px;
+            transition: all 0.15s ease;
+        }
+
+        .compact-step-item:hover {
+            border-color: var(--primary-border);
+            background: #FFFFFF;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .compact-step-title {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        /* Section Layout */
-        .guide-section {
-            padding: 44px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .guide-section:last-of-type {
-            border-bottom: none;
-        }
-
-        .section-header {
-            margin-bottom: 24px;
-        }
-
-        .section-header .sec-badge {
-            display: inline-block;
-            font-family: monospace;
-            font-size: 12px;
-            font-weight: 700;
-            background: rgba(99, 102, 241, 0.15);
-            color: var(--primary-light);
-            padding: 3px 8px;
-            border-radius: 4px;
-            margin-bottom: 8px;
-        }
-
-        .section-header h2 {
-            font-size: 24px;
+            gap: 10px;
+            font-size: 15px;
             font-weight: 800;
-            letter-spacing: -0.5px;
+            color: var(--text-main);
             margin-bottom: 8px;
         }
 
-        .section-header p {
-            font-size: 14px;
-            color: var(--text-sub);
+        .compact-step-badge {
+            background: var(--primary);
+            color: #FFFFFF;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 2px 7px;
+            border-radius: 6px;
         }
 
-        /* Visual Feature Grid with Real UI Crops */
+        .compact-step-desc {
+            font-size: 13.5px;
+            color: var(--text-sub);
+            line-height: 1.6;
+        }
+
+        /* Feature Card Grid */
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
         }
 
-        @media (max-width: 850px) {
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
         .feature-card {
-            background: var(--card-bg);
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 10px;
+            border-radius: 14px;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            transition: border-color 0.2s ease;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
         }
 
         .feature-card:hover {
             border-color: var(--border-hover);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
         }
 
-        /* Actual UI Button Snippet Container */
+        .feature-card-wide {
+            grid-column: span 2;
+        }
+
         .feature-crop-box {
-            background: #1A1A1E;
-            padding: 14px 18px;
-            border-bottom: 1px solid var(--border);
+            background: #F1F5F9;
+            padding: 18px;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 65px;
+            border-bottom: 1px solid var(--border);
+            min-height: 100px;
         }
 
         .feature-crop-box img {
             max-width: 100%;
             height: auto;
             border-radius: 6px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-            display: block;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .feature-card-body {
             padding: 20px;
+            flex: 1;
             display: flex;
             flex-direction: column;
-            flex-grow: 1;
+            gap: 10px;
         }
 
         .feature-card-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 10px;
             gap: 12px;
         }
 
         .feature-name {
-            font-size: 15px;
-            font-weight: 700;
-            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-main);
         }
 
         .feature-tag {
-            font-size: 11px;
-            font-weight: 700;
-            padding: 2px 6px;
+            font-size: 10.5px;
+            font-weight: 800;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 2px 7px;
             border-radius: 4px;
-            background: #27272A;
-            color: var(--text-sub);
-            font-family: monospace;
+            letter-spacing: 0.5px;
         }
 
         .feature-tag.key {
-            background: #312E81;
-            color: #C7D2FE;
+            background: #FEF3C7;
+            color: #92400E;
         }
 
         .feature-desc {
             font-size: 13.5px;
             color: var(--text-sub);
             line-height: 1.6;
-            margin-bottom: 12px;
+        }
+
+        .feature-desc strong {
+            color: var(--text-main);
         }
 
         .feature-tip {
-            font-size: 12px;
-            color: var(--text-muted);
-            border-top: 1px dashed var(--border);
-            padding-top: 10px;
-            line-height: 1.5;
             margin-top: auto;
+            background: #F8FAFC;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 10px 14px;
+            font-size: 12.5px;
+            color: var(--text-sub);
+            line-height: 1.5;
         }
 
         .feature-tip strong {
-            color: var(--text-sub);
+            color: var(--primary);
         }
 
-        /* Wide Feature Card */
-        .feature-card-wide {
-            grid-column: 1 / -1;
-        }
-
-        /* Examples Section */
+        /* Business Examples Grid */
         .example-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 16px;
-        }
-
-        @media (max-width: 900px) {
-            .example-grid {
-                grid-template-columns: 1fr;
-            }
+            gap: 20px;
         }
 
         .example-card {
-            background: var(--card-bg);
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px;
-        }
-
-        .example-header {
+            border-radius: 14px;
+            padding: 22px;
+            box-shadow: var(--shadow-sm);
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .example-step {
-            font-family: monospace;
-            font-size: 11px;
-            font-weight: 700;
-            color: var(--primary-light);
+            flex-direction: column;
+            gap: 12px;
         }
 
         .example-badge {
             font-size: 11px;
-            padding: 2px 6px;
+            font-weight: 800;
+            color: var(--accent-emerald);
+            background: #DCFCE7;
+            padding: 3px 8px;
             border-radius: 4px;
-            background: #27272A;
-            color: var(--text-sub);
+            align-self: flex-start;
         }
 
         .example-card h3 {
-            font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 8px;
-            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--text-main);
         }
 
         .example-card p {
             font-size: 13px;
             color: var(--text-sub);
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
+            background: var(--surface);
             padding: 40px 0;
             margin-top: 60px;
-            font-size: 13px;
-            color: var(--text-muted);
-            text-align: center;
         }
 
-        footer a {
+        .footer-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            font-weight: 600;
             color: var(--text-sub);
-            text-decoration: underline;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 900px) {
+            .compact-guide-grid { grid-template-columns: 1fr; }
+            .feature-grid { grid-template-columns: 1fr; }
+            .feature-card-wide { grid-column: span 1; }
+            .example-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+            .footer-inner { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header / Navigation (통일 표준) -->
     <header>
         <div class="container nav-inner">
             <a href="index.html" class="logo-box">
@@ -462,14 +572,14 @@
             </a>
             <nav class="nav-links">
                 <a href="index.html">메인 소개</a>
+                <a href="index.html#how-it-works">빠른 시작</a>
+                <a href="index.html#comparison">핵심 차별점</a>
                 <a href="guide.html" class="nav-active">기능 가이드</a>
-                <a href="#sec-runner">멀티 러너</a>
                 <a href="updates.html">업데이트 내역</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="index.html#support">고객지원</a>
+                <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank">1:1 소통방</a>
             </nav>
             <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-nav-download">
-                무료 다운로드
+                Windows용 다운로드
             </a>
         </div>
     </header>
@@ -477,31 +587,103 @@
     <div class="container">
         <!-- Hero Section -->
         <section class="guide-hero">
-            <div class="hero-tag">VISUAL DOCUMENTATION</div>
-            <h1>AutoPixel Studio 시각 기능 도감</h1>
+            <div class="hero-tag">VISUAL DOCUMENTATION • 실전 기능 도감</div>
+            <h1>AutoPixel Studio 시각 기능 가이드</h1>
             <p>
-                단순한 텍스트 나열을 넘어, 실제 툴 화면에서 크롭한 실제 버튼 UI 스니펫과 함께 각 기능의 동작 원리와 실무 활용법을 직관적으로 안내합니다.
+                초경량 간편 모드부터 정밀 스튜디오 모드까지, 실제 툴 화면과 UI 크롭 이미지를 통해 각 기능의 동작 원리와 실무 활용법을 직관적으로 안내합니다.
             </p>
 
             <!-- Sub Navigation Bar -->
             <div class="subnav-bar">
-                <a href="#sec-overview"><span class="subnav-num">01</span> Studio 전체 화면</a>
-                <a href="#sec-topbar"><span class="subnav-num">02</span> 상단 제어 바</a>
-                <a href="#sec-sizing"><span class="subnav-num">03</span> 해상도 및 복원</a>
-                <a href="#sec-template"><span class="subnav-num">04</span> 템플릿 관리 & 3초 캡처</a>
-                <a href="#sec-workflow"><span class="subnav-num">05</span> 3대 워크플로우 뷰</a>
-                <a href="#sec-inspector"><span class="subnav-num">06</span> 스텝 속성 인스펙터</a>
-                <a href="#sec-runner"><span class="subnav-num">07</span> Multi-Runner 도감</a>
-                <a href="#sec-examples"><span class="subnav-num">08</span> 합법 실무 시나리오</a>
+                <a href="#sec-compact"><span class="subnav-num">01</span> 초경량 간편 모드 (간단 설정)</a>
+                <a href="#sec-overview"><span class="subnav-num">02</span> 정밀 스튜디오 구조</a>
+                <a href="#sec-topbar"><span class="subnav-num">03</span> 상단 제어 바</a>
+                <a href="#sec-sizing"><span class="subnav-num">04</span> 해상도 & 창 크기 복원</a>
+                <a href="#sec-template"><span class="subnav-num">05</span> 템플릿 관리 & 스마트 캡처</a>
+                <a href="#sec-workflow"><span class="subnav-num">06</span> 타임라인 워크플로우</a>
+                <a href="#sec-examples"><span class="subnav-num">07</span> 실무 업무 시나리오</a>
             </div>
         </section>
 
-        <!-- Section 01: Master Visual Overview -->
+        <!-- Section 01: [신규] 초경량 간편 모드 (간단 설정) -->
+        <section id="sec-compact" class="guide-section">
+            <div class="section-header">
+                <span class="sec-badge">SECTION 01 • 신규 핵심 기능</span>
+                <h2>초경량 '간편 모드' (간단 설정 안내)</h2>
+                <p>복잡한 타임라인이나 난해한 설정 없이, 누구나 즉시 시작할 수 있는 미니멀 윈도우 조작 환경입니다.</p>
+            </div>
+
+            <div class="compact-guide-grid">
+                <!-- Mockup Col -->
+                <div class="compact-mockup-col">
+                    <div class="compact-mockup-frame">
+                        <div class="ui-visual-header">
+                            <div class="ui-dots">
+                                <div class="ui-dot"></div>
+                                <div class="ui-dot"></div>
+                                <div class="ui-dot"></div>
+                            </div>
+                            <div>AutoPixel Studio - 간편 모드</div>
+                            <div style="font-size: 11px; color: var(--primary); font-weight: 700;">460 × 680</div>
+                        </div>
+                        <img src="web_assets/compact_preview.png" alt="AutoPixel Studio 간편 모드 실제 화면" class="compact-mockup-img">
+                    </div>
+                </div>
+
+                <!-- Steps Col -->
+                <div class="compact-steps-col">
+                    <div class="compact-step-item">
+                        <div class="compact-step-title">
+                            <span class="compact-step-badge">STEP 1</span>
+                            <span>대상 창 선택 & 해상도 기억</span>
+                        </div>
+                        <div class="compact-step-desc">
+                            상단 <strong>[창 선택]</strong> 버튼을 누른 뒤 마우스로 자동화할 소프트웨어나 브라우저 창을 클릭합니다. 
+                            <strong>[기억]</strong> 버튼을 누르면 해당 창의 해상도가 메타데이터로 즉시 고정되어 오차 없는 인식이 준비됩니다.
+                        </div>
+                    </div>
+
+                    <div class="compact-step-item">
+                        <div class="compact-step-title">
+                            <span class="compact-step-badge">STEP 2</span>
+                            <span>원클릭 동작 등록 (화면 캡처)</span>
+                        </div>
+                        <div class="compact-step-desc">
+                            상단 <strong>[+ 캡처 스텝 자동 생성]</strong> 버튼을 누르고 클릭하고 싶은 화면의 버튼이나 아이콘을 마우스로 드래그합니다.
+                            이미지 등록과 클릭 명령이 단번에 자동으로 완성되며, <strong>[+ 빠른 추가 ▼]</strong>로 키 입력이나 대기 시간(Sleep)도 손쉽게 넣을 수 있습니다.
+                        </div>
+                    </div>
+
+                    <div class="compact-step-item">
+                        <div class="compact-step-title">
+                            <span class="compact-step-badge">STEP 3</span>
+                            <span>가상 백그라운드 실행 (단축키 F5)</span>
+                        </div>
+                        <div class="compact-step-desc">
+                            하단 <strong>[▶ 시작 (F5)]</strong> 버튼을 누르면 매크로가 즉시 가동됩니다.
+                            마우스 커서를 점유하지 않는 가상 마우스 신호로 구동되므로, 매크로가 돌아가는 동안 자유롭게 다른 PC 업무를 병행할 수 있습니다.
+                        </div>
+                    </div>
+
+                    <div class="compact-step-item" style="background: var(--primary-light); border-color: var(--primary-border);">
+                        <div class="compact-step-title" style="color: var(--primary);">
+                            <span>💡 정밀 스튜디오 모드로 언제든 확장</span>
+                        </div>
+                        <div class="compact-step-desc" style="color: #3730A3;">
+                            간편 모드로 가볍게 작업하다가 복잡한 조건 분기(IF 점프)나 3대 타임라인 뷰, Canny 엣지 필터 등 고급 편집이 필요할 때는 
+                            언제든 상단 <strong>[정밀 모드]</strong> 탭을 눌러 전체 스튜디오 모드로 즉시 전환할 수 있습니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 02: 정밀 스튜디오 구조 -->
         <section id="sec-overview" class="guide-section">
             <div class="section-header">
-                <span class="sec-badge">SECTION 01</span>
-                <h2>AutoPixel Studio 메인 인터페이스 구조</h2>
-                <p>상단 2단 마스터 툴바, 좌측 템플릿 매니저, 중앙 3대 타임라인 뷰, 우측 상세 인스펙터로 정돈된 작업 공간 구조입니다.</p>
+                <span class="sec-badge">SECTION 02</span>
+                <h2>정밀 스튜디오 (고급 모드) 인터페이스 구조</h2>
+                <p>상단 2단 마스터 툴바, 좌측 템플릿 매니저, 중앙 3대 타임라인 뷰, 우측 상세 인스펙터로 정돈된 전문 작업 공간 구조입니다.</p>
             </div>
 
             <div class="ui-visual-wrapper">
@@ -511,12 +693,12 @@
                         <div class="ui-dot"></div>
                         <div class="ui-dot"></div>
                     </div>
-                    <div>AutoPixel Studio</div>
-                    <div>메인 에디터</div>
+                    <div>AutoPixel Studio - 정밀 스튜디오</div>
+                    <div>메인 에디터 화면</div>
                 </div>
-                <img src="web_assets/hero_preview.png" alt="AutoPixel Studio 메인 작업 화면" class="ui-visual-img">
+                <img src="web_assets/hero_preview.png" alt="AutoPixel Studio 정밀 스튜디오 화면" class="ui-visual-img">
                 <div class="ui-visual-caption">
-                    <span>[상단] 2단 마스터 툴바 & 창 타깃</span>
+                    <span>[상단] 2단 마스터 툴바 & 창 바인딩</span>
                     <span>[좌측] 템플릿 캡처 및 서칭 영역(ROI)</span>
                     <span>[중앙] 카드 / 표 / 플로우차트 뷰</span>
                     <span>[우측] 스텝 상세 속성 인스펙터</span>
@@ -524,12 +706,12 @@
             </div>
         </section>
 
-        <!-- Section 02: Top Bar & Window Targeting -->
+        <!-- Section 03: Top Bar & Window Targeting -->
         <section id="sec-topbar" class="guide-section">
             <div class="section-header">
-                <span class="sec-badge">SECTION 02</span>
+                <span class="sec-badge">SECTION 03</span>
                 <h2>상단 제어 바 (프로젝트 관리 및 창 바인딩)</h2>
-                <p>실제 툴 상단 1열과 2열의 각 버튼 영역을 크롭하여 실제 모양과 기능을 1:1로 매칭했습니다.</p>
+                <p>실제 툴 상단의 각 제어 버튼 영역을 크롭하여 실제 모양과 기능을 1:1로 매칭했습니다.</p>
             </div>
 
             <div class="feature-grid">
@@ -611,10 +793,10 @@
             </div>
         </section>
 
-        <!-- Section 03: Resolution & Aspect Ratio -->
+        <!-- Section 04: Resolution & Sizing Restore -->
         <section id="sec-sizing" class="guide-section">
             <div class="section-header">
-                <span class="sec-badge">SECTION 03</span>
+                <span class="sec-badge">SECTION 04</span>
                 <h2>해상도 동기화 & 최적 크기 복원</h2>
                 <p>창 크기가 변경되면 캡처 픽셀 배율이 달라져 인식률이 저하됩니다. 창 크기를 항상 100% 동일하게 유지해 주는 핵심 바입니다.</p>
             </div>
@@ -642,10 +824,10 @@
             </div>
         </section>
 
-        <!-- Section 04: Template Image Manager -->
+        <!-- Section 05: Template Image Manager -->
         <section id="sec-template" class="guide-section">
             <div class="section-header">
-                <span class="sec-badge">SECTION 04</span>
+                <span class="sec-badge">SECTION 05</span>
                 <h2>템플릿 이미지 관리 패널 (좌측)</h2>
                 <p>인식할 버튼/아이콘 이미지를 등록하고 정밀한 비전 감도 조건을 설정합니다.</p>
             </div>
@@ -687,7 +869,7 @@
                             - <strong>배경색 무시 (Canny 엣지):</strong> 색상 정보를 배제하고 외곽 윤곽선(Edge)만 대조하여 다크모드/라이트모드 변화에도 형태를 찾아냅니다.
                         </div>
                         <div class="feature-tip">
-                            <strong>안정성:</strong> 계절별 테마 변화나 시간대별 색상 톤이 바뀌는 환경에서 탁월한 인식률을 자랑합니다.
+                            <strong>안정성:</strong> 테마 변화나 윈도우 색상 톤이 바뀌는 환경에서도 탁월한 인식률을 자랑합니다.
                         </div>
                     </div>
                 </div>
@@ -699,25 +881,25 @@
                     </div>
                     <div class="feature-card-body">
                         <div class="feature-card-header">
-                            <span class="feature-name">서칭 영역(ROI: Region of Interest) 제한 & 인식 테스트</span>
+                            <span class="feature-name">서칭 영역(ROI) 제한 & 인식 테스트</span>
                             <span class="feature-tag">ROI SPEEDUP</span>
                         </div>
                         <div class="feature-desc">
-                            전체 화면을 스캔하지 않고 [드래그 지정]으로 탐색 범위를 한정합니다. CPU 연산 부하를 80% 이상 줄이며 탐색 속도를 5~10배 빠르게 단축합니다.<br>
+                            전체 화면을 스캔하지 않고 [드래그 지정]으로 탐색 범위를 한정합니다. CPU 연산 부하를 80% 이상 줄이며 탐색 속도를 크게 단축합니다.<br>
                             설정 후 [인식 테스트] 버튼을 누르면 현재 대상 화면에서 감지된 유사도 점수와 감지 좌표를 실시간으로 테스트합니다.
                         </div>
                         <div class="feature-tip">
-                            <strong>오탐 방지:</strong> 화면의 다른 구역에 유사한 아이콘이 여러 개 존재하더라도 원하는 영역만 검색하므로 오탐지가 100% 원천 차단됩니다.
+                            <strong>오탐 방지:</strong> 화면의 다른 구역에 유사한 아이콘이 여러 개 존재하더라도 원하는 영역만 검색하므로 오탐지가 원천 차단됩니다.
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Section 05: Workflow Timeline Views -->
+        <!-- Section 06: Workflow Timeline Views -->
         <section id="sec-workflow" class="guide-section">
             <div class="section-header">
-                <span class="sec-badge">SECTION 05</span>
+                <span class="sec-badge">SECTION 06</span>
                 <h2>3대 워크플로우 뷰 및 시퀀스 편집 (중앙)</h2>
                 <p>카드형 타임라인, 클래식 표 뷰, 플로우차트 도식도 3가지 모드로 작업 흐름을 자유롭게 설계합니다.</p>
             </div>
@@ -767,142 +949,17 @@
             </div>
         </section>
 
-        <!-- Section 06: Step Inspector -->
-        <section id="sec-inspector" class="guide-section">
-            <div class="section-header">
-                <span class="sec-badge">SECTION 06</span>
-                <h2>우측 스텝 상세 속성 (Inspector Panel)</h2>
-                <p>선택한 스텝 카드의 정밀 좌표 오프셋과 예외 처리 조건을 실시간 설정합니다.</p>
-            </div>
-
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-crop-box">
-                        <img src="web_assets/crops/crop_inspector_panel.png" alt="스텝 상세 속성 패널">
-                    </div>
-                    <div class="feature-card-body">
-                        <div class="feature-card-header">
-                            <span class="feature-name">상세 속성 인스펙터 패널</span>
-                            <span class="feature-tag">INSPECTOR</span>
-                        </div>
-                        <div class="feature-desc">
-                            중앙 타임라인에서 스텝 카드를 클릭하면 우측 패널에 해당 스텝의 클릭 오프셋(X, Y), 클릭 후 대기 시간, 실패 시 예외 처리 정책이 즉각 로드됩니다.
-                        </div>
-                        <div class="feature-tip">
-                            <strong>실패 시 대응:</strong> [매크로 즉시 정지], [다음 스텝 건너뛰기], [3회 재시도] 옵션을 통해 일시적 네트워크 지연에도 멈추지 않는 방탄 매크로를 구성할 수 있습니다.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-card-body" style="justify-content: center;">
-                        <div class="feature-card-header">
-                            <span class="feature-name">클릭 오프셋 & 예외 분기 TIP</span>
-                            <span class="feature-tag">PRO TIP</span>
-                        </div>
-                        <div class="feature-desc">
-                            - <strong>상대 오프셋 (Offset X, Y):</strong> 캡처한 이미지 정중앙 대신, 예를 들어 '아이디' 글자가 적힌 라벨 영역을 템플릿 이미지로 캡처해 두고 그 오른쪽 100px 지점의 빈 입력창을 클릭하도록 상대 좌표를 지정할 때 활용합니다.<br>
-                            - <strong>동작 후 대기 시간 (Sleep):</strong> 버튼 클릭 후 웹페이지나 프로그램 화면이 렌더링될 수 있도록 0.3초~1.0초의 적절한 완충 대기 시간을 부여하는 것이 좋습니다.
-                        </div>
-                        <div class="feature-tip">
-                            <strong>로그 콘솔:</strong> 하단 실시간 이벤트 콘솔을 통해 각 스텝별 수행 시간(ms)과 인식 성공 여부를 밀리초 단위로 확인할 수 있습니다.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 07: Multi-Runner Detailed Guide -->
-        <section id="sec-runner" class="guide-section">
-            <div class="section-header">
-                <span class="sec-badge">SECTION 07</span>
-                <h2>멀티 실행 러너 (Multi-Runner) 상세 도감</h2>
-                <p>여러 개의 창을 동시에 띄워 서로 다른 자동화 작업을 병렬로 제어하는 다중 실행 관제 센터입니다.</p>
-            </div>
-
-            <!-- Full Runner Screenshot -->
-            <div class="ui-visual-wrapper">
-                <div class="ui-visual-header">
-                    <div class="ui-dots">
-                        <div class="ui-dot"></div>
-                        <div class="ui-dot"></div>
-                        <div class="ui-dot"></div>
-                    </div>
-                    <div>AutoPixel Studio - 멀티 실행 (Runner)</div>
-                    <div>병렬 실행 센터</div>
-                </div>
-                <img src="web_assets/runner_preview.png" alt="AutoPixel Studio 멀티 러너 전체 화면" class="ui-visual-img">
-                <div class="ui-visual-caption">
-                    <span>[상단] 전체 일괄 시작/정지 & 창 크기 일괄 맞춤</span>
-                    <span>[하단] 다중 작업 인스턴스 카드 목록</span>
-                    <span>[기능] 백그라운드 무간섭 독립 병렬 스레드 구동</span>
-                </div>
-            </div>
-
-            <div class="feature-grid">
-                <!-- Runner Crop Card 1: Master Control Bar -->
-                <div class="feature-card feature-card-wide">
-                    <div class="feature-crop-box">
-                        <img src="web_assets/crops/crop_runner_master_bar.png" alt="멀티 러너 상단 마스터 제어 바">
-                    </div>
-                    <div class="feature-card-body">
-                        <div class="feature-card-header">
-                            <span class="feature-name">러너 상단 마스터 일괄 제어 바</span>
-                            <span class="feature-tag">MASTER TOOLBAR</span>
-                        </div>
-                        <div class="feature-desc">
-                            - <strong>+ 새 작업 추가:</strong> 실행 목록에 새로운 작업 카드 행을 추가합니다.<br>
-                            - <strong>전체 선택 / 전체 해제:</strong> 목록의 모든 작업 카드를 일괄 선택하거나 체크 해제합니다.<br>
-                            - <strong>▶ 전체 일괄 시작 / ■ 전체 일괄 정지:</strong> 바인딩된 모든 창의 매크로를 단 1클릭으로 동시 가동하거나 비상 시 즉각 정지합니다.<br>
-                            - <strong>⧉ 전체 창 크기 일괄 맞춤:</strong> 띄워진 다중 클라이언트 창들을 기준 최적 크기(1920x1080 등)로 한 번에 균일하게 리사이징 정렬합니다.<br>
-                            - <strong>💾 세팅 저장 / 📁 세팅 불러오기:</strong> 다중 작업 구성과 창 바인딩 매핑 상태를 프리셋 파일로 저장해 매일 출근 시 원클릭으로 세팅을 복원합니다.
-                        </div>
-                        <div class="feature-tip">
-                            <strong>생산성:</strong> 4~8개의 창을 일일이 켜고 맞출 필요 없이, [세팅 불러오기] -> [전체 창 크기 맞춤] -> [전체 일괄 시작]으로 3초 만에 모든 업무 준비가 완료됩니다.
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Runner Crop Card 2: Individual Task Card -->
-                <div class="feature-card feature-card-wide">
-                    <div class="feature-crop-box">
-                        <img src="web_assets/crops/crop_runner_task_card.png" alt="멀티 러너 개별 작업 카드 행">
-                    </div>
-                    <div class="feature-card-body">
-                        <div class="feature-card-header">
-                            <span class="feature-name">개별 작업 인스턴스 카드 구성</span>
-                            <span class="feature-tag">TASK INSTANCE</span>
-                        </div>
-                        <div class="feature-desc">
-                            - <strong>📁 작업 선택:</strong> 해당 인스턴스에 실행할 Studio 프로젝트 파일(.json)을 지정합니다.<br>
-                            - <strong>⧉ 대상 창 선택 (미선택 ▾):</strong> 신호를 전송할 대상 윈도우 창 핸들을 매핑합니다.<br>
-                            - <strong>창 확인:</strong> 바인딩된 창이 화면에서 깜빡여 대상이 맞는지 즉시 검증합니다.<br>
-                            - <strong>⧉ 크기 맞춤:</strong> 해당 창 1개만 기준 픽셀 해상도로 즉각 맞춥니다.<br>
-                            - <strong>반복 스핀박스 & ▶ 시작:</strong> 무한 루프 또는 지정 횟수 반복 후 개별 인스턴스만 독립 시작합니다.<br>
-                            - <strong>상태 표시줄:</strong> 현재 창의 매크로 수행 단계, 반복 회차, 실시간 성공/대기 상태가 실시간 출력됩니다.
-                        </div>
-                        <div class="feature-tip">
-                            <strong>독립성:</strong> 1번 창에서 일시적 로딩 지연이 발생하더라도 다른 창들의 실행 스레드는 전혀 영향받지 않고 100% 독립적으로 정상 동작합니다.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 08: Safe Business Examples -->
+        <!-- Section 07: Safe Business Examples -->
         <section id="sec-examples" class="guide-section">
             <div class="section-header">
-                <span class="sec-badge">SECTION 08</span>
+                <span class="sec-badge">SECTION 07</span>
                 <h2>실무 비즈니스 자동화 시나리오 예시</h2>
                 <p>AutoPixel Studio를 활용하여 매일 반복되는 정형 데이터 처리 및 전산 업무를 자동화하는 합법적인 비즈니스 실전 활용 사례입니다.</p>
             </div>
 
             <div class="example-grid">
                 <div class="example-card">
-                    <div class="example-header">
-                        <span class="example-step">CASE 01</span>
-                        <span class="example-badge">ERP / 정산</span>
-                    </div>
+                    <span class="example-badge">정형 전산 업무</span>
                     <h3>사내 ERP 일괄 정산 다운로드</h3>
                     <p>
                         매일 오전 사내 ERP 시스템에 로그인하여 날짜 범위를 선택하고, 매출 정산 엑셀 파일을 백그라운드로 안전하게 다운로드받는 시퀀스.
@@ -910,24 +967,18 @@
                 </div>
 
                 <div class="example-card">
-                    <div class="example-header">
-                        <span class="example-step">CASE 02</span>
-                        <span class="example-badge">DATA ENTRY</span>
-                    </div>
-                    <h3>엑셀 목록 기반 웹 폼 반복 입력</h3>
+                    <span class="example-badge">대량 데이터 처리</span>
+                    <h3>전자상거래 송장 번호 일괄 대사</h3>
                     <p>
-                        엑셀 시트에 정리된 수백 건의 배송 송장 번호나 품목 데이터를 사내 포털 등록 폼에 한 줄씩 순차적으로 자동 기입하고 결과를 저장.
+                        웹 브라우저 관리자 페이지에서 1,000건의 송장 번호를 순차적으로 열어 배송 상태를 확인하고 사내 시스템과 교차 검증하는 자동화.
                     </p>
                 </div>
 
                 <div class="example-card">
-                    <div class="example-header">
-                        <span class="example-step">CASE 03</span>
-                        <span class="example-badge">MONITORING</span>
-                    </div>
-                    <h3>장애 팝업 감지 및 자동 복구 재시작</h3>
+                    <span class="example-badge">인프라 모니터링</span>
+                    <h3>서버 대시보드 헬스체크 모니터링</h3>
                     <p>
-                        24시간 구동되는 무인 시스템 화면에 오류 알림창이나 네트워크 단절 팝업이 나타날 경우 [확인] 클릭 및 프로세스 자동 재기동 루틴.
+                        사내 웹 관제 대시보드에서 '장애(Red Alert)' 아이콘이 발생하는지 주기적으로 확인하고, 감지 시 담당자에게 알림을 전송하는 관제 루프.
                     </p>
                 </div>
             </div>
@@ -936,13 +987,16 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>AutoPixel Studio Documentation - All Rights Reserved.</p>
-            <p style="margin-top: 8px;">
-                <a href="index.html">홈으로 이동</a> | 
-                <a href="updates.html">업데이트 내역</a> | 
-                <a href="index.html#support">기술 지원 문의</a>
-            </p>
+        <div class="container footer-inner">
+            <div>
+                © 2026 AutoPixel Studio. All rights reserved. 본 도구는 업무 효율 향상을 위한 화면 인식 자동화 소프트웨어입니다.
+            </div>
+            <div class="footer-links">
+                <a href="index.html">메인 소개</a>
+                <a href="guide.html">기능 가이드</a>
+                <a href="updates.html">업데이트 내역</a>
+                <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank">1:1 소통방</a>
+            </div>
         </div>
     </footer>
 

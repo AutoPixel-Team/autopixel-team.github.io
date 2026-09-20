@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AutoPixel Studio - 업데이트 내역 (Changelog)</title>
-    <meta name="description" content="AutoPixel Studio의 최신 버전 릴리즈 노트와 업데이트 내역을 확인하세요. 매주 실사용자 피드백을 반영하여 끊임없이 진화합니다.">
+    <meta name="description" content="AutoPixel Studio의 최신 버전 릴리즈 노트와 업데이트 내역을 확인하세요. 사용자 피드백을 바탕으로 끊임없이 진화합니다.">
     <meta name="keywords" content="AutoPixel Studio, 업데이트, 릴리즈노트, 변경사항, 패치노트, RPA, 매크로">
     
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="AutoPixel Studio - 업데이트 내역 (v1.2.0 정식 릴리즈)">
-    <meta property="og:description" content="타임라인 탭 추가, 3초 캡처, 멀티창 병렬 실행 등 대규모 기능 및 사용성 업데이트 내역을 확인하세요.">
+    <meta property="og:title" content="AutoPixel Studio - 업데이트 내역 및 릴리즈 노트">
+    <meta property="og:description" content="초보자도 10초 만에 바로 쓰는 초경량 간편 모드 신규 도입 등 AutoPixel Studio의 최신 변경사항을 확인하세요.">
     <meta property="og:image" content="web_assets/hero_preview.png">
     
     <!-- Favicon -->
@@ -19,24 +19,31 @@
 
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    
     <style>
         :root {
-            --bg: #09090B;
-            --card-bg: #121215;
-            --card-hover: #18181B;
-            --border: #27272A;
-            --border-hover: #3F3F46;
+            --bg: #F8FAFC;
+            --surface: #FFFFFF;
+            --surface-hover: #F1F5F9;
+            --border: #E2E8F0;
+            --border-hover: #CBD5E1;
             --primary: #4F46E5;
-            --primary-light: #6366F1;
-            --primary-glow: rgba(99, 102, 241, 0.25);
-            --accent-emerald: #10B981;
-            --accent-emerald-glow: rgba(16, 185, 129, 0.2);
-            --accent-amber: #F59E0B;
-            --accent-sky: #38BDF8;
-            --text-main: #FAFAFA;
-            --text-sub: #A1A1AA;
-            --text-muted: #71717A;
+            --primary-hover: #4338CA;
+            --primary-light: #EEF2FF;
+            --primary-border: #C7D2FE;
+            --accent-emerald: #059669;
+            --accent-emerald-light: #ECFDF5;
+            --accent-amber: #D97706;
+            --accent-amber-light: #FFFBEB;
+            --accent-sky: #0284C7;
+            --accent-sky-light: #F0F9FF;
+            --text-main: #0F172A;
+            --text-sub: #475569;
+            --text-muted: #64748B;
             --font: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 4px 16px -2px rgba(15, 23, 42, 0.06), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+            --shadow-lg: 0 12px 32px -4px rgba(15, 23, 42, 0.08), 0 4px 12px -2px rgba(15, 23, 42, 0.04);
         }
 
         * {
@@ -70,7 +77,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(9, 9, 11, 0.9);
+            background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border);
         }
@@ -79,7 +86,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            height: 70px;
+            height: 68px;
             gap: 16px;
         }
 
@@ -90,6 +97,7 @@
             font-weight: 800;
             font-size: 18px;
             letter-spacing: -0.5px;
+            color: var(--text-main);
             white-space: nowrap;
             flex-shrink: 0;
         }
@@ -98,131 +106,105 @@
             background: var(--primary);
             color: #FFFFFF;
             font-size: 11px;
-            font-weight: 900;
-            padding: 4px 8px;
+            font-weight: 800;
+            padding: 2px 7px;
             border-radius: 6px;
-            letter-spacing: 0.5px;
-            flex-shrink: 0;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
-            font-size: 14px;
+            align-items: center;
+            gap: 28px;
+            font-size: 14.5px;
             font-weight: 600;
             color: var(--text-sub);
-            white-space: nowrap;
-            align-items: center;
-        }
-
-        .nav-links a {
-            white-space: nowrap;
         }
 
         .nav-links a:hover {
-            color: var(--text-main);
+            color: var(--primary);
         }
 
-        .nav-active {
-            color: var(--accent-emerald) !important;
+        .nav-links a.nav-active {
+            color: var(--primary);
+            font-weight: 700;
         }
 
         .btn-nav-download {
             background: var(--primary);
             color: #FFFFFF;
-            font-size: 13px;
+            font-size: 13.5px;
             font-weight: 700;
             padding: 9px 18px;
-            border-radius: 6px;
-            border: 1px solid var(--primary-light);
+            border-radius: 8px;
             transition: all 0.2s ease;
-            white-space: nowrap;
-            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25);
         }
 
         .btn-nav-download:hover {
-            background: #4338CA;
-            box-shadow: 0 0 20px var(--primary-glow);
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
         }
 
-        /* Hero */
+        /* Changelog Hero */
         .changelog-hero {
-            padding: 70px 0 45px;
+            padding: 56px 0 36px;
             text-align: center;
-            position: relative;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .changelog-hero::before {
-            content: '';
-            position: absolute;
-            top: -60px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 500px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(9, 9, 11, 0) 70%);
-            z-index: -1;
-            pointer-events: none;
         }
 
         .badge-pill {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 14px;
-            border-radius: 20px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.3);
-            color: var(--accent-emerald);
+            gap: 6px;
+            background: var(--primary-light);
+            border: 1px solid var(--primary-border);
+            color: var(--primary);
             font-size: 12px;
-            font-weight: 700;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 20px;
             margin-bottom: 18px;
+            letter-spacing: 0.5px;
         }
 
         .changelog-hero h1 {
-            font-size: 38px;
-            font-weight: 800;
-            letter-spacing: -1px;
+            font-size: 34px;
+            font-weight: 900;
+            letter-spacing: -0.8px;
+            color: var(--text-main);
             margin-bottom: 12px;
-            background: linear-gradient(180deg, #FFFFFF 0%, #D4D4D8 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .changelog-hero p {
             font-size: 16px;
             color: var(--text-sub);
-            max-width: 620px;
+            max-width: 640px;
             margin: 0 auto;
         }
 
-        /* Timeline Layout */
+        /* Timeline Items */
         .timeline-section {
-            padding: 50px 0 80px;
+            padding-bottom: 72px;
         }
 
         .release-item {
-            position: relative;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
-        .release-item:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Featured Release Card (v1.2.0) */
         .release-card {
-            background-color: var(--card-bg);
+            background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 34px 36px;
-            transition: border-color 0.2s;
+            padding: 36px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: all 0.2s ease;
         }
 
         .release-card.featured {
-            border-color: #6366F1;
-            box-shadow: 0 0 35px rgba(99, 102, 241, 0.12);
+            border-color: var(--primary-border);
+            box-shadow: var(--shadow-lg);
+            background: #FFFFFF;
         }
 
         .release-header {
@@ -231,9 +213,9 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 16px;
-            padding-bottom: 22px;
+            margin-bottom: 22px;
+            padding-bottom: 20px;
             border-bottom: 1px solid var(--border);
-            margin-bottom: 24px;
         }
 
         .release-title-box {
@@ -244,189 +226,210 @@
         }
 
         .version-tag {
-            font-size: 24px;
-            font-weight: 800;
-            color: #FFFFFF;
+            font-size: 22px;
+            font-weight: 900;
+            color: var(--text-main);
             letter-spacing: -0.5px;
         }
 
         .badge-latest {
-            background: var(--accent-emerald);
-            color: #064E3B;
+            background: #DCFCE7;
+            color: #15803D;
             font-size: 11px;
             font-weight: 800;
             padding: 3px 9px;
             border-radius: 6px;
-            letter-spacing: 0.5px;
+            border: 1px solid #BBF7D0;
         }
 
         .badge-previous {
-            background: #27272A;
-            color: #A1A1AA;
+            background: var(--surface-hover);
+            color: var(--text-muted);
             font-size: 11px;
             font-weight: 700;
             padding: 3px 9px;
             border-radius: 6px;
+            border: 1px solid var(--border);
         }
 
         .release-date {
+            font-size: 13.5px;
             color: var(--text-muted);
-            font-size: 13px;
             font-weight: 600;
         }
 
         .btn-download-version {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            background: #1E1B4B;
-            border: 1px solid #4338CA;
-            color: #A5B4FC;
+            gap: 6px;
+            background: var(--primary);
+            color: #FFFFFF;
             font-size: 13px;
             font-weight: 700;
             padding: 8px 16px;
             border-radius: 8px;
-            transition: all 0.2s;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.2);
         }
 
         .btn-download-version:hover {
-            background: #312E81;
-            color: #FFFFFF;
-            border-color: #6366F1;
+            background: var(--primary-hover);
+            transform: translateY(-1px);
         }
 
         .release-summary-banner {
-            background: rgba(99, 102, 241, 0.08);
-            border-left: 3px solid var(--primary-light);
-            border-radius: 0 8px 8px 0;
+            background: var(--primary-light);
+            border: 1px solid var(--primary-border);
+            border-radius: 10px;
             padding: 14px 18px;
             margin-bottom: 28px;
-            font-size: 14.5px;
-            color: #E0E7FF;
+            font-size: 14px;
+            color: #3730A3;
             line-height: 1.6;
         }
 
-        /* Category Modules */
+        .release-summary-banner strong {
+            color: var(--primary);
+            font-weight: 800;
+        }
+
+        /* Category Grid */
         .category-grid {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 22px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
         }
 
         .cat-card {
-            background: #16161B;
-            border: 1px solid #27272A;
+            background: #F8FAFC;
+            border: 1px solid var(--border);
             border-radius: 12px;
-            padding: 22px 24px;
+            padding: 22px;
+            transition: background-color 0.15s ease;
+        }
+
+        .cat-card:hover {
+            background: #F1F5F9;
+        }
+
+        .cat-card.full-width {
+            grid-column: span 2;
         }
 
         .cat-title {
-            font-size: 16px;
-            font-weight: 700;
-            color: #F4F4F5;
-            margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
+            font-size: 15.5px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 14px;
         }
 
         .cat-title-indicator {
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: var(--primary-light);
+            background: var(--primary);
         }
 
-        .cat-title-indicator.emerald {
-            background: var(--accent-emerald);
-        }
-
-        .cat-title-indicator.amber {
-            background: var(--accent-amber);
-        }
-
-        .cat-title-indicator.sky {
-            background: var(--accent-sky);
-        }
+        .cat-title-indicator.emerald { background: var(--accent-emerald); }
+        .cat-title-indicator.sky { background: var(--accent-sky); }
+        .cat-title-indicator.amber { background: var(--accent-amber); }
 
         .cat-list {
             list-style: none;
+            padding: 0;
+            margin: 0;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
         }
 
         .cat-list li {
-            position: relative;
-            padding-left: 18px;
-            font-size: 14px;
+            font-size: 13.5px;
             color: var(--text-sub);
-            line-height: 1.55;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 14px;
         }
 
         .cat-list li::before {
-            content: '•';
+            content: "•";
             position: absolute;
-            left: 4px;
+            left: 0;
             color: var(--text-muted);
             font-weight: bold;
         }
 
         .cat-list li strong {
-            color: #FAFAFA;
-            font-weight: 600;
+            color: var(--text-main);
+            font-weight: 700;
         }
 
-        /* Older Releases */
         .older-header {
-            margin: 60px 0 24px;
-            font-size: 20px;
-            font-weight: 800;
-            color: #A1A1AA;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            text-align: center;
+            margin: 48px 0 28px;
+            position: relative;
         }
 
-        .older-header::after {
-            content: '';
-            flex: 1;
+        .older-header::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
             height: 1px;
             background: var(--border);
+            z-index: 1;
+        }
+
+        .older-header span {
+            position: relative;
+            z-index: 2;
+            background: var(--bg);
+            padding: 0 18px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
         }
 
         /* Footer */
         footer {
             border-top: 1px solid var(--border);
-            padding: 50px 0 40px;
-            background: #09090B;
-            font-size: 13px;
-            color: var(--text-muted);
+            background: var(--surface);
+            padding: 36px 0;
         }
 
         .footer-inner {
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-muted);
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 16px;
         }
 
         .footer-links {
             display: flex;
             gap: 20px;
+            font-weight: 600;
+            color: var(--text-sub);
         }
 
         .footer-links a:hover {
-            color: var(--text-main);
+            color: var(--primary);
         }
 
         @media (max-width: 768px) {
+            .category-grid { grid-template-columns: 1fr; }
+            .cat-card.full-width { grid-column: span 1; }
             .nav-links { display: none; }
-            .release-card { padding: 22px 20px; }
-            .changelog-hero h1 { font-size: 28px; }
-            .release-header { flex-direction: column; align-items: flex-start; }
-            .btn-download-version { width: 100%; justify-content: center; }
+            .release-card { padding: 24px; }
+            .footer-inner { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -440,15 +443,15 @@
                 <span>AutoPixel Studio</span>
             </a>
             <nav class="nav-links">
-                <a href="index.html">🏠 메인 소개</a>
-                <a href="guide.html" style="color: var(--primary-light); font-weight: 700;">기능 가이드</a>
-                <a href="index.html#multirunner">멀티 러너</a>
-                <a href="updates.html" class="nav-active">📢 업데이트 내역</a>
-                <a href="index.html#faq">FAQ</a>
-                <a href="index.html#support">고객지원</a>
+                <a href="index.html">메인 소개</a>
+                <a href="index.html#how-it-works">빠른 시작</a>
+                <a href="index.html#comparison">핵심 차별점</a>
+                <a href="guide.html">기능 가이드</a>
+                <a href="updates.html" class="nav-active">업데이트 내역</a>
+                <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank">1:1 소통방</a>
             </nav>
             <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-nav-download">
-                오픈 베타 무료 다운로드
+                Windows용 다운로드
             </a>
         </div>
     </header>
@@ -468,91 +471,36 @@
     <section class="timeline-section">
         <div class="container">
 
-            <!-- v1.2.0 (LATEST) -->
+            <!-- v1.2.4 (LATEST) -->
             <div class="release-item">
                 <div class="release-card featured">
                     <div class="release-header">
                         <div class="release-title-box">
-                            <span class="version-tag">AutoPixel Studio v1.2.0</span>
+                            <span class="version-tag">AutoPixel Studio v1.2.4</span>
                             <span class="badge-latest">LATEST RELEASE</span>
-                            <span class="release-date">2026년 9월 19일 릴리즈</span>
+                            <span class="release-date">2026년 9월 20일 릴리즈</span>
                         </div>
                         <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-download-version">
-                            <span>⬇️ v1.2.0 다운로드 (AutoPixel_Studio.exe)</span>
+                            <span>⬇️ 최신 버전 다운로드 (AutoPixel_Studio.exe)</span>
                         </a>
                     </div>
 
                     <div class="release-summary-banner">
-                        <strong>핵심 요약:</strong> 타임라인 탭 신설, 3초 카운트다운 지연 캡처, 다중 창 동시 병렬 실행 모드, 실행 취소(Ctrl+Z) 및 다시 실행(Ctrl+Y), 한글 입력(IME) 100% 자동화 등 대규모 편의 기능 추가 및 시스템 안정성이 강화되었습니다.
+                        <strong>핵심 요약:</strong> 누구나 바로 쉽게 시작할 수 있는 초경량 <strong>'간편 모드'가 신규 도입</strong>되었습니다. 복잡한 설정 없이 화면 캡처만으로 간편하게 매크로를 만들고 실행할 수 있습니다.
                     </div>
 
-                    <div class="category-grid">
+                    <div class="category-grid" style="grid-template-columns: 1fr;">
                         
-                        <!-- 1. 카드 타임라인 & 상세 속성 패널 -->
+                        <!-- 초경량 간편 모드 신규 도입 -->
                         <div class="cat-card">
                             <div class="cat-title">
                                 <span class="cat-title-indicator"></span>
-                                <span>1. 카드 타임라인 & 상세 속성 인스펙터 패널 개편</span>
+                                <span>초경량 '간편 모드' 신규 도입 (입문자 친화형 UI)</span>
                             </div>
                             <ul class="cat-list">
-                                <li><strong>초고속 가상 렌더링 카드 타임라인 탑재:</strong> 수천 개의 스텝도 렉 없이 부드럽게 스크롤되며 시각적으로 확인 가능한 카드형 타임라인 뷰를 기본 제공합니다.</li>
-                                <li><strong>원클릭 마우스 드래그 앤 드롭:</strong> 카드를 원하는 위치로 끌어당기면 실행 순서가 즉각 재배치됩니다.</li>
-                                <li><strong>컴팩트 속성 인스펙터:</strong> 불필요한 스크롤 나열을 걷어내고, 우측 한 화면에서 [실행 조건 → 동작 → 조건 분기 → 대기 시간]을 한눈에 파악 및 수정할 수 있습니다.</li>
-                                <li><strong>타임라인 전역 마우스 휠 스크롤 지원:</strong> 좌측 카드 영역뿐 아니라 우측 속성 패널, 라벨, 빈 여백 어디서든 휠 조작 시 타임라인이 부드럽게 스크롤되며, 텍스트 입력 중 포커스가 유지됩니다.</li>
-                                <li><strong>키보드 Delete 삭제 및 비활성 스텝 취소선:</strong> 스텝 선택 후 Delete 키로 즉시 삭제할 수 있으며, 제외된 스텝은 취소선과 흐린 표시로 직관적으로 구분됩니다.</li>
-                            </ul>
-                        </div>
-
-                        <!-- 2. 편집 편의성 & 실행 취소 / 다시 실행 -->
-                        <div class="cat-card">
-                            <div class="cat-title">
-                                <span class="cat-title-indicator emerald"></span>
-                                <span>2. 작업 편의성 및 편집 기능 강화 (Undo / Redo)</span>
-                            </div>
-                            <ul class="cat-list">
-                                <li><strong>실행 취소(Ctrl+Z) 및 다시 실행(Ctrl+Y):</strong> 스텝 추가, 삭제, 순서 변경, 속성 편집 등 작업 중 실수해도 언제든 직전 상태로 복원할 수 있습니다.</li>
-                                <li><strong>다중 스텝 일괄 제어 컨텍스트 메뉴:</strong> Shift/Ctrl 클릭으로 여러 스텝을 선택한 뒤 우클릭하여 [새 그룹으로 묶기], [일괄 켜기/끄기], [일괄 딜레이 변경], [일괄 삭제]를 원클릭으로 처리합니다.</li>
-                                <li><strong>한글 입력 모드(IME) 100% 자동 활성화:</strong> 그룹 생성, 일괄 그룹 묶기, 스텝 이름 변경 시 윈도우 OS 창 전환 지연에 대응하는 다단계 방어 타이머를 탑재하여 항상 한글 입력 상태로 열립니다.</li>
-                            </ul>
-                        </div>
-
-                        <!-- 3. 그룹 및 흐름 제어 -->
-                        <div class="cat-card">
-                            <div class="cat-title">
-                                <span class="cat-title-indicator sky"></span>
-                                <span>3. 그룹(루틴) 및 양방향 조건 분기 고도화</span>
-                            </div>
-                            <ul class="cat-list">
-                                <li><strong>그룹 접기/펼치기 (Collapse/Expand):</strong> 수십 개의 스텝으로 구성된 복잡한 워크플로우를 그룹 단위로 접어 깔끔하게 관리할 수 있습니다.</li>
-                                <li><strong>접힌 그룹 통째로 일괄 이동:</strong> 그룹이 접힌 상태에서 카드를 드래그하면 그룹에 속한 시작부터 끝까지 모든 스텝이 통째로 함께 이동합니다.</li>
-                                <li><strong>다중 중첩 그룹 구조 완벽 지원:</strong> 그룹 안에 또 다른 하위 그룹이 들어가는 N단계 계층 구조에서도 스텝 넣기/빼기 및 들여쓰기 정렬이 정상 작동합니다.</li>
-                                <li><strong>양방향 조건 분기 지원:</strong> 조건 불일치(실패) 시뿐만 아니라, 조건 일치(성공/발견) 시에도 [특정 스텝 점프], [루프 처음으로 리셋], [정지], [계속 진행]을 코딩 없이 유연하게 설정할 수 있습니다.</li>
-                            </ul>
-                        </div>
-
-                        <!-- 4. 캡처 및 정밀 조작 -->
-                        <div class="cat-card">
-                            <div class="cat-title">
-                                <span class="cat-title-indicator amber"></span>
-                                <span>4. 캡처 및 정밀 조작 도구 추가</span>
-                            </div>
-                            <ul class="cat-list">
-                                <li><strong>3초 카운트다운 지연 캡처:</strong> 마우스를 떼면 사라지는 윈도우 시작 메뉴, 우클릭 팝업 메뉴 등을 3초 타이머 후 안정적으로 캡처할 수 있습니다.</li>
-                                <li><strong>사각 영역(ROI) 및 픽셀 스나이퍼 실시간 돋보기 확대경:</strong> 1픽셀 단위의 미세한 지점이나 작은 버튼도 돋보기로 정밀하게 확대하여 지정할 수 있습니다.</li>
-                                <li><strong>화면 직접 좌표 찍기 연동:</strong> 더블클릭, 우클릭, 사각 영역 랜덤 클릭 등 모든 클릭 동작의 대상 좌표를 화면에서 직관적으로 찍어 저장할 수 있습니다.</li>
-                            </ul>
-                        </div>
-
-                        <!-- 5. 멀티 러너 및 안정성 -->
-                        <div class="cat-card">
-                            <div class="cat-title">
-                                <span class="cat-title-indicator"></span>
-                                <span>5. 멀티 윈도우 러너 & UI 디자인 최적화</span>
-                            </div>
-                            <ul class="cat-list">
-                                <li><strong>동시 병렬 실행 모드:</strong> 동일한 프로그램이나 창을 여러 개 띄워두었을 때, 체크박스로 여러 창을 선택하여 한 번에 일괄 동시 병렬 실행이 가능합니다.</li>
-                                <li><strong>창 재실행 시 자동 핸들(HWND) 복원:</strong> 대상 창이 재부팅되거나 닫혔다 다시 열려도 프로세스명과 창 제목을 매핑하여 자동으로 타깃 핸들을 찾아 복원합니다.</li>
-                                <li><strong>모던 무채색 벡터 아이콘 통일:</strong> 열기, 저장, 멀티 실행, 폴더, 시계 등의 컬러 이모티콘을 단정하고 세련된 무채색 벡터 아이콘으로 통일했습니다.</li>
+                                <li><strong>미니멀 윈도우 크기 자동 전환:</strong> 메인 상단 탭 1번에 [간편 모드]를 배치하여, 실행 시 460×680 미니멀 크기로 깔끔하고 가볍게 시작할 수 있습니다.</li>
+                                <li><strong>한눈에 들어오는 3단계 직관적 구성:</strong> 복잡한 타임라인이나 설정 창을 보지 않고도, 상단의 [+ 캡처 스텝 자동 생성], [+ 빠른 추가 ▼], [+ 스텝 추가] 버튼으로 원하는 동작을 손쉽게 구성할 수 있습니다.</li>
+                                <li><strong>원클릭 스튜디오 확장 전환:</strong> 간편 모드 사용 중 고급 조건 분기나 세부 타임라인 편집이 필요할 때는 언제든 상단의 [정밀 모드] 탭을 눌러 전체 스튜디오 작업창으로 전환할 수 있습니다.</li>
                             </ul>
                         </div>
 
@@ -563,6 +511,28 @@
             <!-- 이전 릴리즈 히스토리 -->
             <div class="older-header">
                 <span>이전 릴리즈 히스토리</span>
+            </div>
+
+            <!-- v1.2.0 -->
+            <div class="release-item">
+                <div class="release-card">
+                    <div class="release-header">
+                        <div class="release-title-box">
+                            <span class="version-tag" style="font-size: 19px;">AutoPixel Studio v1.2.0</span>
+                            <span class="badge-previous">PREVIOUS</span>
+                            <span class="release-date">2026년 9월 19일</span>
+                        </div>
+                    </div>
+                    <div class="release-summary-banner" style="background: #F8FAFC; border-color: var(--border); color: var(--text-sub);">
+                        <strong>핵심 요약:</strong> 타임라인 탭 신설, 3초 카운트다운 지연 캡처, 실행 취소(Ctrl+Z) 및 다시 실행(Ctrl+Y), 한글 입력(IME) 자동화 등 대규모 편의 기능 추가 및 시스템 안정성이 강화되었습니다.
+                    </div>
+                    <ul class="cat-list">
+                        <li><strong>초고속 가상 렌더링 카드 타임라인 탑재:</strong> 수천 개의 스텝도 렉 없이 부드럽게 스크롤되며 시각적으로 확인 가능한 카드형 타임라인 뷰 제공</li>
+                        <li><strong>실행 취소(Ctrl+Z) 및 다시 실행(Ctrl+Y):</strong> 작업 중 실수해도 언제든 직전 상태로 복원 가능</li>
+                        <li><strong>3초 카운트다운 지연 캡처:</strong> 마우스를 떼면 사라지는 메뉴나 팝업을 3초 타이머 후 안정적으로 캡처 지원</li>
+                        <li><strong>한글 입력 모드(IME) 자동 활성화:</strong> 창 전환 지연에 대응하는 다단계 방어로 텍스트 입력창에서 항상 한글 입력 상태 유지</li>
+                    </ul>
+                </div>
             </div>
 
             <!-- v1.1.3 -->
@@ -576,7 +546,7 @@
                         </div>
                     </div>
                     <ul class="cat-list">
-                        <li><strong>클라우드 라이선스 세션 안정화:</strong> OBT 기간 동안 30일 무료 라이선스 검증 및 자동 갱신 로직 강화</li>
+                        <li><strong>클라우드 라이선스 세션 안정화:</strong> 30일 라이선스 검증 및 무결성 검증 로직 강화</li>
                         <li><strong>대상 창 선택 UI 반응성 개선:</strong> 윈도우 목록 새로고침 속도 향상 및 DPI 스케일링 보정</li>
                     </ul>
                 </div>
@@ -593,9 +563,8 @@
                         </div>
                     </div>
                     <ul class="cat-list">
-                        <li><strong>AutoPixel Studio 정식 오픈 베타 출시:</strong> 코딩 없이 1분 만에 완성하는 노코드 이미지 인식 RPA 매크로 솔루션 첫 공개</li>
-                        <li><strong>백그라운드 가상 입력 엔진:</strong> 마우스와 키보드를 뺏기지 않고 다른 업무를 하면서 백그라운드에서 실행되는 가상 입력 탑재</li>
-                        <li><strong>다중 인스턴스 순차/독립 실행 러너:</strong> 1개 PC에서 여러 창을 제어할 수 있는 멀티 윈도우 관리 러너 탑재</li>
+                        <li><strong>AutoPixel Studio 최초 출시:</strong> 코딩 없이 1분 만에 완성하는 노코드 이미지 인식 업무 자동화 도구 첫 공개</li>
+                        <li><strong>백그라운드 가상 입력 엔진:</strong> 마우스 커서를 빼앗기지 않고 다른 업무를 하면서 실행되는 가상 클릭 기능 탑재</li>
                     </ul>
                 </div>
             </div>
@@ -607,13 +576,14 @@
     <footer>
         <div class="container footer-inner">
             <div>
-                <a href="index.html" style="font-weight: bold; color: #FFFFFF;">AutoPixel Studio</a> • © 2026 All rights reserved.
+                <a href="index.html" style="font-weight: bold; color: var(--text-main);">AutoPixel Studio</a> • © 2026 AutoPixel Team. All rights reserved.
             </div>
             <div class="footer-links">
                 <a href="index.html">메인 홈페이지</a>
-                <a href="index.html#guide">실전 가이드</a>
-                <a href="updates.html" style="color: var(--accent-emerald);">업데이트 내역</a>
-                <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe">다운로드</a>
+                <a href="index.html#how-it-works">빠른 시작</a>
+                <a href="index.html#comparison">핵심 차별점</a>
+                <a href="updates.html" style="color: var(--primary);">업데이트 내역</a>
+                <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank">1:1 소통방</a>
             </div>
         </div>
     </footer>
