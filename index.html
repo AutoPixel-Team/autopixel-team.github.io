@@ -522,6 +522,32 @@
         }
 
         /* Comparison Table Section */
+        .comp-tab-btn {
+            background: #FFFFFF;
+            border: 1px solid var(--border);
+            color: var(--text-sub);
+            font-size: 14px;
+            font-weight: 700;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .comp-tab-btn:hover {
+            border-color: var(--primary-border);
+            color: var(--primary);
+        }
+
+        .comp-tab-btn.active {
+            background: var(--primary-light);
+            border-color: var(--primary);
+            color: var(--primary);
+            font-weight: 800;
+            box-shadow: 0 2px 8px rgba(79, 70, 229, 0.15);
+        }
+
         .comparison-table-wrap {
             max-width: 960px;
             margin: 0 auto;
@@ -957,6 +983,58 @@
                     </tbody>
                 </table>
             </div>
+
+            <!-- Comparison Demo Showcase (Tabs: Occlusion & Tracking) -->
+            <div style="max-width: 800px; margin: 48px auto 0;">
+                <div style="text-align: center; margin-bottom: 16px;">
+                    <span style="font-size: 12px; font-weight: 800; color: var(--primary); text-transform: uppercase; letter-spacing: 0.8px;">LIVE PROOF • 실제 동작 검증</span>
+                    <h3 style="font-size: 20px; font-weight: 800; color: var(--text-main); margin-top: 6px;">기술 격차 눈으로 직접 확인하기</h3>
+                </div>
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 20px;">
+                    <button class="comp-tab-btn active" id="tabBtnOcclusion" onclick="switchCompDemo('occlusion')">
+                        ✦ 1. 창 가림 100% 관통 시연
+                    </button>
+                    <button class="comp-tab-btn" id="tabBtnTracking" onclick="switchCompDemo('tracking')">
+                        ✦ 2. 창 위치·크기 실시간 추적 시연
+                    </button>
+                </div>
+
+                <!-- 4호: 창 가림 관통 시연 -->
+                <div class="demo-showcase" id="showcaseOcclusion">
+                    <div class="demo-showcase-header">
+                        <div class="demo-window-controls">
+                            <span class="control-dot dot-r"></span>
+                            <span class="control-dot dot-y"></span>
+                            <span class="control-dot dot-g"></span>
+                        </div>
+                        <span class="demo-window-title">창 가림 무간섭 백그라운드 구동 실시간 시연</span>
+                        <span class="demo-window-tag">✦ 화면 은닉 완벽 관통</span>
+                    </div>
+                    <div class="demo-showcase-body">
+                        <img src="web_assets/autopixel_occlusion_demo.gif" alt="창 가림 무간섭 백그라운드 구동 시연 영상" class="demo-gif-img">
+                    </div>
+                </div>
+
+                <!-- 2호: 실시간 비전 추적 시연 -->
+                <div class="demo-showcase" id="showcaseTracking" style="display: none;">
+                    <div class="demo-showcase-header">
+                        <div class="demo-window-controls">
+                            <span class="control-dot dot-r"></span>
+                            <span class="control-dot dot-y"></span>
+                            <span class="control-dot dot-g"></span>
+                        </div>
+                        <span class="demo-window-title">창 위치·크기 실시간 자동 추적 시연 (일반 매크로 vs AutoPixel)</span>
+                        <span class="demo-window-tag">✦ 스마트 비전 락온</span>
+                    </div>
+                    <div class="demo-showcase-body">
+                        <img src="web_assets/autopixel_tracking_demo.gif" alt="실시간 비전 자동 추적 시연 영상" class="demo-gif-img">
+                    </div>
+                </div>
+
+                <div class="mockup-caption" id="compDemoCaption" style="text-align: center; margin-top: 16px;">
+                    위 시연처럼 YouTube나 다른 창으로 업무 창을 완전히 덮어두어도 뒤에서 가상 클릭을 오차 없이 계속 수행합니다.
+                </div>
+            </div>
         </div>
     </section>
 
@@ -1121,6 +1199,28 @@
 
     <!-- Script -->
     <script>
+        function switchCompDemo(type) {
+            const scOcclusion = document.getElementById('showcaseOcclusion');
+            const scTracking = document.getElementById('showcaseTracking');
+            const btnOcclusion = document.getElementById('tabBtnOcclusion');
+            const btnTracking = document.getElementById('tabBtnTracking');
+            const caption = document.getElementById('compDemoCaption');
+
+            if (type === 'occlusion') {
+                scOcclusion.style.display = 'block';
+                scTracking.style.display = 'none';
+                btnOcclusion.classList.add('active');
+                btnTracking.classList.remove('active');
+                caption.innerHTML = '위 시연처럼 YouTube나 다른 창으로 업무 창을 완전히 덮어두어도 뒤에서 가상 클릭을 오차 없이 계속 수행합니다.';
+            } else {
+                scOcclusion.style.display = 'none';
+                scTracking.style.display = 'block';
+                btnOcclusion.classList.remove('active');
+                btnTracking.classList.add('active');
+                caption.innerHTML = '창 위치를 옮기거나 크기가 달라져도 초록색 비전 락온 박스가 버튼을 실시간으로 추적하여 100% 명중시킵니다.';
+            }
+        }
+
         function toggleFaq(element) {
             const item = element.parentElement;
             item.classList.toggle('active');
