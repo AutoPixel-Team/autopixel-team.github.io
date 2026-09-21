@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://autopixel-team.github.io/sitemap.xml
