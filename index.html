@@ -805,10 +805,151 @@
             color: var(--text-main);
         }
 
+        /* Template & Sandbox Showcase */
+        .template-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: start;
+            margin-top: 36px;
+        }
+
+        .template-list-box {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .template-item {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 16px 20px;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .template-item:hover {
+            border-color: var(--primary-border);
+            transform: translateX(4px);
+        }
+
+        .template-item-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+
+        .template-item-title {
+            font-size: 15px;
+            font-weight: 800;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .template-item-badge {
+            font-size: 11px;
+            font-weight: 700;
+            padding: 2px 8px;
+            border-radius: 6px;
+            background: #EEF2FF;
+            color: #4F46E5;
+        }
+
+        .template-item-desc {
+            font-size: 13px;
+            color: var(--text-sub);
+            line-height: 1.5;
+        }
+
+        .sandbox-callout {
+            margin-top: 48px;
+            background: linear-gradient(135deg, #F8FAFC 0%, #EEF2FF 100%);
+            border: 1px solid var(--primary-border);
+            border-radius: 16px;
+            padding: 32px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .sandbox-flow-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin: 24px 0 28px;
+        }
+
+        .sandbox-flow-step {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 18px 16px;
+            text-align: center;
+        }
+
+        .sandbox-flow-step .step-tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--primary);
+            background: var(--primary-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+            margin-bottom: 8px;
+        }
+
+        .sandbox-flow-step h4 {
+            font-size: 14.5px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .sandbox-flow-step p {
+            font-size: 12.5px;
+            color: var(--text-sub);
+            line-height: 1.45;
+        }
+
+        .sandbox-preview-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .sandbox-preview-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .sandbox-preview-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .sandbox-preview-card .caption {
+            padding: 10px 14px;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--text-sub);
+            border-top: 1px solid var(--border);
+            background: #FAFAFA;
+            text-align: center;
+        }
+
         /* Responsive */
         @media (max-width: 860px) {
             .steps-grid { grid-template-columns: 1fr; }
             .features-grid { grid-template-columns: 1fr; }
+            .template-grid { grid-template-columns: 1fr; }
+            .sandbox-flow-grid { grid-template-columns: 1fr; }
+            .sandbox-preview-duo { grid-template-columns: 1fr; }
             .feedback-banner { flex-direction: column; text-align: center; }
             .feedback-action { width: 100%; justify-content: center; }
             .nav-links { display: none; }
@@ -830,6 +971,7 @@
                 <a href="index.html" class="nav-active">메인 소개</a>
                 <a href="#how-it-works">빠른 시작</a>
                 <a href="#comparison">핵심 차별점</a>
+                <a href="#templates-showcase">추천 템플릿</a>
                 <a href="guide.html">기능 가이드</a>
                 <a href="updates.html">업데이트 내역</a>
                 <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank">1:1 소통방</a>
@@ -1067,6 +1209,145 @@
 
                 <div class="mockup-caption" id="compDemoCaption" style="text-align: center; margin-top: 16px;">
                     위 시연처럼 YouTube나 다른 창으로 업무 창을 완전히 덮어두어도 뒤에서 가상 클릭을 오차 없이 계속 수행합니다.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recommended Templates & Sandbox Showcase -->
+    <section id="templates-showcase" style="background: #F8FAFC; border-top: 1px solid var(--border);">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">RECOMMENDED TEMPLATES & SANDBOX</span>
+                <h2>6대 추천 템플릿 보관함 & 실시간 미니 샌드박스</h2>
+                <p>처음 쓰는 초보자도 1초 만에 업무 자동화를 체감할 수 있는 실무 프리셋과 안전한 독립 연습 공간을 제공합니다.</p>
+            </div>
+
+            <div class="template-grid">
+                <!-- Left: Template Dialog Preview -->
+                <div class="sandbox-preview-card">
+                    <div class="demo-showcase-header">
+                        <div class="demo-window-controls">
+                            <span class="control-dot dot-r"></span>
+                            <span class="control-dot dot-y"></span>
+                            <span class="control-dot dot-g"></span>
+                        </div>
+                        <span class="demo-window-title">추천 템플릿 보관함 다이얼로그</span>
+                        <span class="demo-window-tag">✦ 원클릭 불러오기</span>
+                    </div>
+                    <img src="web_assets/template_dialog_preview.png" alt="AutoPixel Studio 추천 템플릿 보관함 UI">
+                    <div class="caption">
+                        6가지 실무 시나리오별 즉시 실행 가능한 매크로 스크립트 기본 탑재
+                    </div>
+                </div>
+
+                <!-- Right: 6 Template Items List -->
+                <div class="template-list-box">
+                    <div class="template-item">
+                        <div class="template-item-header">
+                            <span class="template-item-title">1. 웹 데이터 수집 & 주기적 새로고침</span>
+                            <span class="template-item-badge">RPA 기본</span>
+                        </div>
+                        <div class="template-item-desc">
+                            웹 브라우저를 백그라운드로 주기적(F5) 갱신하고 최신 데이터를 수집하는 자동 루틴입니다.
+                        </div>
+                    </div>
+
+                    <div class="template-item">
+                        <div class="template-item-header">
+                            <span class="template-item-title">2. 팝업 자동 감지 및 닫기 / 예외 처리</span>
+                            <span class="template-item-badge">예외 대응</span>
+                        </div>
+                        <div class="template-item-desc">
+                            업무 중 불시에 나타나는 공지 팝업이나 확인 창을 백그라운드로 즉시 감지하여 안전하게 닫아줍니다.
+                        </div>
+                    </div>
+
+                    <div class="template-item">
+                        <div class="template-item-header">
+                            <span class="template-item-title">3. 듀얼 타겟 순차 제어</span>
+                            <span class="template-item-badge">다중 타겟</span>
+                        </div>
+                        <div class="template-item-desc">
+                            작업 A 버튼 클릭 후 작업 B 처리로 이어지는 2단계 연속 프로세스를 오차 없이 제어합니다.
+                        </div>
+                    </div>
+
+                    <div class="template-item">
+                        <div class="template-item-header">
+                            <span class="template-item-title">4. 목록 연속 스크롤 & 자동 탐색</span>
+                            <span class="template-item-badge">스크롤 제어</span>
+                        </div>
+                        <div class="template-item-desc">
+                            긴 게시판, 상품 리스트, 거래 내역 화면을 아래로 연속 스크롤하며 전수 확인합니다.
+                        </div>
+                    </div>
+
+                    <div class="template-item">
+                        <div class="template-item-header">
+                            <span class="template-item-title">5. 서버 헬스체크 및 RGB 복구 루틴</span>
+                            <span class="template-item-badge">O(1) RGB 매칭</span>
+                        </div>
+                        <div class="template-item-desc">
+                            초고속 O(1) 픽셀 매칭으로 서버 상태 램프(정상/오류)를 실시간 감시하고 자동 복구 버튼을 작동시킵니다.
+                        </div>
+                    </div>
+
+                    <div class="template-item">
+                        <div class="template-item-header">
+                            <span class="template-item-title">6. 기본 클릭 반복 루틴</span>
+                            <span class="template-item-badge">입문자 추천</span>
+                        </div>
+                        <div class="template-item-desc">
+                            가상 클릭 기반 가장 간단한 기초 무간섭 반복 클릭 매크로 환경을 제공합니다.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sandbox & 3-Step Transition Callout -->
+            <div class="sandbox-callout">
+                <div style="text-align: center; max-width: 680px; margin: 0 auto;">
+                    <span style="display: inline-block; background: var(--primary-light); color: var(--primary); font-size: 11.5px; font-weight: 800; padding: 3px 9px; border-radius: 6px; margin-bottom: 8px;">✦ 안전한 가상 연습 공간</span>
+                    <h3 style="font-size: 22px; font-weight: 800; color: var(--text-main); margin-bottom: 8px;">실시간 미니 샌드박스로 연습하고, 내 작업으로 3초 만에 연계</h3>
+                    <p style="font-size: 14.5px; color: var(--text-sub); line-height: 1.6;">
+                        실제 업무 창이나 민감한 프로그램을 건드리지 않고도 100% 안전하게 동작을 검증할 수 있습니다.<br>
+                        원하는 템플릿의 동작을 확인한 후, [내 작업으로 연계] 버튼 하나로 내 실무에 즉시 적용하세요.
+                    </p>
+                </div>
+
+                <div class="sandbox-flow-grid">
+                    <div class="sandbox-flow-step">
+                        <span class="step-tag">STEP 01</span>
+                        <h4>템플릿 로드 & 샌드박스 검증</h4>
+                        <p>추천 템플릿을 선택하고 [샌드박스 열기]를 눌러 안전한 독립 연습창에서 F5로 백그라운드 동작을 시뮬레이션합니다.</p>
+                    </div>
+                    <div class="sandbox-flow-step">
+                        <span class="step-tag">STEP 02</span>
+                        <h4>내 작업으로 원클릭 연계</h4>
+                        <p>[내 작업으로 연계]를 누르면 내 실제 실무 프로그램 창을 클릭하여 대상 타겟을 즉시 자동 변경합니다.</p>
+                    </div>
+                    <div class="sandbox-flow-step">
+                        <span class="step-tag">STEP 03</span>
+                        <h4>실무 버튼 원클릭 갱신 & 가동</h4>
+                        <p>내 프로그램 화면의 실제 버튼을 원클릭 캡처로 갱신하면 나만의 맞춤형 백그라운드 자동화 완성!</p>
+                    </div>
+                </div>
+
+                <!-- Sandbox Dual Preview Images -->
+                <div class="sandbox-preview-duo">
+                    <div class="sandbox-preview-card">
+                        <img src="web_assets/sandbox_normal_preview.png" alt="샌드박스 정상 감시 상태">
+                        <div class="caption">
+                            [독립 샌드박스] 정상 상태 실시간 관제 시뮬레이션
+                        </div>
+                    </div>
+                    <div class="sandbox-preview-card">
+                        <img src="web_assets/sandbox_after_preview.png" alt="샌드박스 장애 복구 완료 상태">
+                        <div class="caption">
+                            [독립 샌드박스] 장애 발생 감지 및 자동 복구 완료 시뮬레이션
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
