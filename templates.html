@@ -392,7 +392,7 @@
         /* Image Showcase Gallery */
         .sandbox-gallery {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 24px;
             margin-bottom: 36px;
         }
@@ -593,8 +593,8 @@
                     <div class="stat-label">가상 / 직접 클릭 지원</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-num">3초</div>
-                    <div class="stat-label">원클릭 실무 연계</div>
+                    <div class="stat-num">원클릭</div>
+                    <div class="stat-label">간편한 실무 연계</div>
                 </div>
             </div>
         </div>
@@ -754,12 +754,12 @@
                 </div>
                 <div class="tpl-title">실전 실습: 사람다운 활선 드래그 & 드로잉 팩</div>
                 <div class="tpl-desc">
-                    시작 영역(A)에서 종료 영역(B)으로 마우스가 <strong>사람다운 유려한 3차 Bézier 곡선(가속/감속 완급 조절 + 미세 손떨림)</strong>을 그리며 이동하는 고급 드래그 실습 팩입니다. 캔버스 위젯에 회차별 다채로운 브러시 선이 지워지지 않고 차곡차곡 누적됩니다.
+                    시작 영역(A)에서 종료 영역(B)으로 마우스가 <strong>사람다운 부드러운 활선 곡선(완급 조절 및 자연스러운 손떨림)</strong>을 그리며 이동하는 고급 드래그 실습 팩입니다. 캔버스 위젯에 회차별 다채로운 브러시 선이 지워지지 않고 차곡차곡 누적됩니다.
                 </div>
                 <div class="tpl-flow-box" style="background: #FFFFFF;">
                     <div class="tpl-flow-title">스텝 구성 및 핵심 기술</div>
                     <div class="tpl-flow-item"><strong>스텝 1:</strong> 0.5초 대기 (캔버스 준비)</div>
-                    <div class="tpl-flow-item"><strong>스텝 2:</strong> 2000ms 인간형 활선 드래그 (시작 A ➔ 종료 B 사각 랜덤 영역)</div>
+                    <div class="tpl-flow-item"><strong>스텝 2:</strong> 2초 부드러운 곡선 드래그 (시작 A ➔ 종료 B 사각 랜덤 영역)</div>
                     <div class="tpl-flow-item"><strong>브러시 누적:</strong> 인디고 ➔ 하늘 ➔ 에메랄드 ➔ 주황 ➔ 핑크 선 누적</div>
                     <div class="tpl-flow-item"><strong>모드 동기화:</strong> 상단 콤보박스 선택에 따라 가상/직접 드래그 100% 연동</div>
                 </div>
@@ -777,7 +777,7 @@
                 <span style="font-size: 11.5px; font-weight: 800; color: var(--primary); background: var(--primary-light); padding: 4px 12px; border-radius: 20px; border: 1px solid var(--primary-border);">✦ SAFE SIMULATION ENVIRONMENT</span>
                 <h2 style="margin-top: 12px;">AutoPixel 실습 샌드박스 (독립 연습용 창)</h2>
                 <p>
-                    실제 중요한 업무 창이나 금융/사내 시스템을 건드리지 않고도 100% 안전하게 동작 원리를 체험할 수 있도록<br>
+                    실제 중요한 업무 창이나 사내 전산 프로그램을 건드리지 않고도 100% 안전하게 동작 원리를 체험할 수 있도록<br>
                     각 템플릿에 맞춤 설계된 독립 시뮬레이션 윈도우 창(SandboxWindow)이 함께 열립니다.
                 </p>
             </div>
@@ -791,40 +791,47 @@
                     </p>
                 </div>
                 <div class="sb-feature-box">
-                    <h4><span>⚡</span> 실시간 시각 반응 & 관제</h4>
+                    <h4><span>⚡</span> 다양한 실전 시뮬레이션 모드</h4>
                     <p>
-                        가상 클릭 카운트 증가, 버튼 누름 시각화, 돌발 팝업 자동 닫힘, 상태등 LED 색상 변화(초록 ➔ 빨강 ➔ 복구) 등 모든 동작 결과를 시각적으로 즉시 확인합니다.
+                        기본 클릭 카운터, 돌발 팝업 자동 닫힘, 목록 연속 스크롤, 실시간 상태 감시 및 자동 복구, 곡선 드로잉 캔버스까지 템플릿별 맞춤형 연습 환경이 자동으로 제공됩니다.
                     </p>
                 </div>
                 <div class="sb-feature-box">
-                    <h4><span>🎨</span> 활선 드로잉 캔버스 내장</h4>
+                    <h4><span>🎨</span> 실시간 시각 반응 & 궤적 누적</h4>
                     <p>
-                        활선 드래그 템플릿 로드 시 전용 드로잉 캔버스가 활성화되어, 2초간 그려지는 매끄러운 곡선 궤적과 회차별 브러시 선 누적을 눈으로 직접 검증할 수 있습니다.
+                        클릭 카운트 증가, 팝업 자동 닫힘, 상태등 색상 변화(초록 ➔ 빨강 ➔ 복구), 캔버스 다색 곡선 브러시 선 누적 등 모든 동작 결과를 화면에서 즉시 눈으로 확인합니다.
                     </p>
                 </div>
             </div>
 
-            <!-- Sandbox Preview Showcase Images -->
+            <!-- Sandbox Preview Showcase Images (3 Modes) -->
             <div class="sandbox-gallery">
                 <div class="gallery-card">
-                    <img src="web_assets/template_dialog_preview.png" alt="AutoPixel 추천 템플릿 다이얼로그">
+                    <img src="web_assets/sandbox_normal_preview.png" alt="샌드박스 실시간 관제 및 클릭 실습">
                     <div class="cap">
-                        [추천 템플릿 보관함] 상단 툴바에서 원클릭 로드
-                        <div class="sub-cap">7가지 실무 시나리오를 선택하면 타임라인 스텝이 즉시 완성됩니다.</div>
+                        [기본 클릭 & 관제 모드] 정상 상태 감시 및 클릭 반응
+                        <div class="sub-cap">타깃 버튼을 백그라운드로 자동 클릭하고 정상 상태 램프를 실시간 감시합니다.</div>
+                    </div>
+                </div>
+                <div class="gallery-card">
+                    <img src="web_assets/sandbox_after_preview.png" alt="샌드박스 돌발 장애 감지 및 자동 복구 실습">
+                    <div class="cap">
+                        [돌발 대응 & 자동 복구 모드] 팝업 감지 및 장애 복구
+                        <div class="sub-cap">돌발 안내창이나 상태등 이상(적색 램프) 발생 시 즉시 감지하여 복구 버튼을 작동시킵니다.</div>
                     </div>
                 </div>
                 <div class="gallery-card">
                     <img src="web_assets/sandbox_drag_canvas.png" alt="활선 드래그 캔버스 실시간 궤적 누적 실습 화면">
                     <div class="cap">
-                        [인앱 활선 캔버스] 사람다운 곡선 드래그 실시간 누적 드로잉
-                        <div class="sub-cap">시작 A ➔ 종료 B 랜덤 영역 간의 부드러운 인간형 곡선 궤적이 캔버스에 영구 보존됩니다.</div>
+                        [활선 드래그 & 캔버스 모드] 자연스러운 곡선 드래그 누적
+                        <div class="sub-cap">시작 A ➔ 종료 B 랜덤 영역 간의 부드러운 곡선 궤적이 캔버스에 차곡차곡 누적됩니다.</div>
                     </div>
                 </div>
             </div>
 
             <!-- 3-Step Transition Banner -->
             <div class="step-transition-banner">
-                <h3>연습이 끝나셨나요? [내 작업 시작하기]로 3초 만에 실무 연계!</h3>
+                <h3>연습이 끝나셨나요? [내 작업 시작하기]로 간편한 실무 연계!</h3>
                 <p>
                     샌드박스에서 완벽히 검증된 스텝 구조를 그대로 유지한 채, 내 실제 업무 프로그램으로 타깃만 즉시 변경합니다.
                 </p>
