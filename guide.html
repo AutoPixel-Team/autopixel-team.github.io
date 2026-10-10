@@ -569,6 +569,7 @@
     <!-- Header / Navigation (통일 표준) -->
     <!-- Master Global Header Template -->
 <!-- Master Global Header Template -->
+<!-- Master Global Header Template -->
 <header class="site-header">
     <div class="header-container">
         <a href="index.html" class="logo-box">
@@ -1070,6 +1071,39 @@
                     <p>
                         사내 웹 관제 대시보드에서 '장애(Red Alert)' 아이콘이 발생하는지 주기적으로 확인하고, 감지 시 담당자에게 알림을 전송하는 관제 루프.
                     </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 10: Admin Privileges Guide -->
+        <section id="sec-admin" class="guide-section">
+            <div class="section-header">
+                <span class="sec-badge">SECTION 10</span>
+                <h2>관리자 권한 대상 프로그램 제어 가이드</h2>
+                <p>일반 웹브라우저, 앱플레이어, 업무 툴 등 대다수 프로그램은 일반 권한으로도 100% 정상 제어됩니다. 보안 정책상 관리자 권한으로 실행된 대상 프로그램을 제어할 때의 권장 설정 방법입니다.</p>
+            </div>
+
+            <div class="example-grid">
+                <div class="example-card" style="border-top: 3px solid #4F46E5;">
+                    <span class="example-badge" style="background: #EEF2FF; color: #4F46E5;">권장 • 상시 자동 적용</span>
+                    <h3>무설치 EXE 버전 (단일 실행 파일)</h3>
+                    <p style="margin-bottom: 12px;">
+                        바탕화면의 바로가기 아이콘에서 <strong>[우클릭] ➔ [속성] ➔ [바로 가기] 탭 ➔ [고급(D)...]</strong>을 클릭한 뒤, <strong>'☑ 관리자 권한으로 실행'</strong>을 체크하고 [확인]을 누릅니다.
+                    </p>
+                    <div class="feature-tip" style="margin-top: 8px;">
+                        <strong>팁:</strong> 이렇게 설정해 두시면 매번 더블클릭할 때마다 편리하게 항상 관리자 권한으로 자동 실행됩니다.
+                    </div>
+                </div>
+
+                <div class="example-card" style="border-top: 3px solid #0F172A;">
+                    <span class="example-badge" style="background: #F1F5F9; color: #0F172A;">스토어 공식 규격</span>
+                    <h3>Microsoft Store 버전</h3>
+                    <p style="margin-bottom: 12px;">
+                        Windows 스토어 앱은 OS 정책상 바로가기 고급 속성이 제한되므로, <strong>[시작 메뉴] ➔ 'AutoPixel' 검색 ➔ [우클릭] ➔ [자세히] ➔ [관리자 권한으로 실행]</strong>을 선택하여 실행합니다.
+                    </p>
+                    <div class="feature-tip" style="margin-top: 8px;">
+                        <strong>안내:</strong> 상시 관리자 모드 자동 실행이 필요하신 분은 공식 홈페이지의 '무설치 EXE 버전' 이용을 권장합니다.
+                    </div>
                 </div>
             </div>
         </section>
