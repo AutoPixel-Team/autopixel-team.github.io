@@ -1,0 +1,142 @@
+/* ========================================================
+   AutoPixel Studio - 글로벌 통합 헤더 스타일
+   (모든 페이지 100% 픽셀 일치 & 떨림/위치 틀어짐 원천 방지)
+   ======================================================== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border, #E2E8F0);
+    width: 100%;
+    height: 68px;
+    box-sizing: border-box;
+}
+
+.header-container {
+    max-width: 1140px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 24px !important;
+    height: 68px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-sizing: border-box !important;
+}
+
+.site-header .logo-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.5px;
+    color: var(--text-main, #0F172A);
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.site-header .logo-badge {
+    background: var(--primary, #4F46E5);
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 2px 7px;
+    border-radius: 6px;
+}
+
+.site-header .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: var(--text-sub, #475569);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-header .nav-links a {
+    color: var(--text-sub, #475569);
+    text-decoration: none;
+    transition: color 0.15s ease;
+    padding: 8px 0;
+    position: relative;
+    display: inline-block;
+}
+
+.site-header .nav-links a:hover {
+    color: var(--primary, #4F46E5);
+}
+
+.site-header .nav-links a.nav-active {
+    color: var(--primary, #4F46E5);
+    font-weight: 700;
+}
+
+.site-header .nav-links a.nav-active::after {
+    content: "";
+    position: absolute;
+    bottom: -16px;
+    left: 0;
+    right: 0;
+    height: 2.5px;
+    background: var(--primary, #4F46E5);
+    border-radius: 2px;
+}
+
+.site-header .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.site-header .btn-store-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #0F172A;
+    color: #FFFFFF !important;
+    font-size: 13.5px;
+    font-weight: 700;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(15, 23, 42, 0.2);
+}
+
+.site-header .btn-store-nav:hover {
+    background: #1E293B;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.3);
+}
+
+.site-header .btn-exe-nav {
+    display: inline-flex;
+    align-items: center;
+    background: var(--surface, #FFFFFF);
+    color: var(--text-main, #0F172A) !important;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border, #CBD5E1);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.site-header .btn-exe-nav:hover {
+    background: #F8FAFC;
+    border-color: #94A3B8;
+}
+
+@media (max-width: 900px) {
+    .site-header .nav-links { display: none; }
+}

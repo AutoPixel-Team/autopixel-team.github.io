@@ -1026,39 +1026,42 @@
             .footer-inner { flex-direction: column; text-align: center; }
         }
     </style>
+    <link rel="stylesheet" href="components/header.css">
 </head>
 <body>
 
     <!-- Header -->
-    <header>
-        <div class="container nav-inner">
-            <a href="index.html" class="logo-box">
-                <span class="logo-badge">AP</span>
-                <span>AutoPixel Studio</span>
+    <!-- Master Global Header Template -->
+<!-- Master Global Header Template -->
+<header class="site-header">
+    <div class="header-container">
+        <a href="index.html" class="logo-box">
+            <span class="logo-badge">AP</span>
+            <span>AutoPixel Studio</span>
+        </a>
+        <nav class="nav-links">
+            <a href="index.html" class="nav-active">메인 소개</a>
+            <a href="templates.html" class="">실전 템플릿</a>
+            <a href="guide.html" class="">기능 가이드</a>
+            <a href="updates.html" class="">업데이트 내역</a>
+            <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank">1:1 소통방</a>
+        </nav>
+        <div class="nav-actions">
+            <a href="https://apps.microsoft.com/detail/9NRSF4S9WG12" target="_blank" class="btn-store-nav">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                    <path d="M1 1H10.5V10.5H1V1Z" fill="#F25022"/>
+                    <path d="M13.5 1H23V10.5H13.5V1Z" fill="#7FBA00"/>
+                    <path d="M1 13.5H10.5V23H1V13.5Z" fill="#00A4EF"/>
+                    <path d="M13.5 13.5H23V23H13.5V13.5Z" fill="#FFB900"/>
+                </svg>
+                <span>Store 다운로드</span>
             </a>
-            <nav class="nav-links">
-                <a href="index.html" class="nav-active">메인 소개</a>
-                <a href="templates.html">실전 템플릿</a>
-                <a href="guide.html">기능 가이드</a>
-                <a href="updates.html">업데이트 내역</a>
-                <a href="https://open.kakao.com/o/sHxYUkNi" target="_blank">1:1 소통방</a>
-            </nav>
-            <div style="display: flex; align-items: center; gap: 8px;">
-                <a href="https://apps.microsoft.com/detail/9NRSF4S9WG12" target="_blank" class="btn-nav-download" style="display: inline-flex; align-items: center; gap: 6px; background: #0F172A; text-decoration: none; border: 1px solid rgba(255, 255, 255, 0.15);">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                        <path d="M1 1H10.5V10.5H1V1Z" fill="#F25022"/>
-                        <path d="M13.5 1H23V10.5H13.5V1Z" fill="#7FBA00"/>
-                        <path d="M1 13.5H10.5V23H1V13.5Z" fill="#00A4EF"/>
-                        <path d="M13.5 13.5H23V23H13.5V13.5Z" fill="#FFB900"/>
-                    </svg>
-                    <span>Store 다운로드</span>
-                </a>
-                <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-nav-download" onclick="openDownloadModal()" style="background: var(--surface); color: var(--text-main); border: 1px solid var(--border); box-shadow: none; text-decoration: none;">
-                    무설치 EXE
-                </a>
-            </div>
+            <a href="https://github.com/AutoPixel-Team/AutoPixel-Release/releases/latest/download/AutoPixel_Studio.exe" class="btn-exe-nav">
+                무설치 EXE
+            </a>
         </div>
-    </header>
+    </div>
+</header>
 
     <!-- Hero Section -->
     <section class="hero">
