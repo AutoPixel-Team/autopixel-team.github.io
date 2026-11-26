@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pocket Life 개인정보처리방침</title>
+<style>
+  :root { --bg:#fffaf3; --fg:#3b2f2a; --muted:#7a6a60; --card:#ffffff; --line:#eadfd3; --accent:#a8532c; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1f1a17; --fg:#f2e9e1; --muted:#b9aa9e; --card:#2a2420; --line:#3d342e; --accent:#e39a72; } }
+  body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.65 system-ui, -apple-system, "Noto Sans KR", sans-serif; word-break:keep-all; overflow-wrap:break-word; }
+  main { max-width:720px; margin:0 auto; padding:32px 16px 64px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; } h2 { font-size:1.15rem; margin:32px 0 8px; } h3 { font-size:1rem; margin:20px 0 6px; }
+  td:first-child { width:30%; }
+  .muted { color:var(--muted); } a { color:var(--accent); } li { margin:4px 0; }
+  table { width:100%; border-collapse:collapse; font-size:.95rem; } th, td { border:1px solid var(--line); padding:8px; text-align:left; vertical-align:top; }
+  th { background:var(--card); } .wrap { overflow-x:auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Pocket Life 개인정보처리방침</h1>
+  <p class="muted">앱: Pocket Life · 운영자: 윤소프트(YoonSoft) · Google Play 개발자 표시명: YoonSoft Studio · 시행일: 2026년 11월 26일</p>
+
+  <p>Pocket Life(이하 "앱")는 윤소프트(YoonSoft)가 운영하고, Google Play에는 개발자 이름 "YoonSoft Studio"로 표시돼요.
+     앱은 게임에 꼭 필요한 정보만 처리해요. 이 방침은 앱이 어떤 정보를, 왜, 얼마나 오래 처리하는지 설명해요.</p>
+
+  <h2>1. 처리하는 정보</h2>
+  <div class="wrap"><table>
+    <tr><th>정보</th><th>언제</th><th>목적</th></tr>
+    <tr><td>무작위 계정 번호(이메일 없이 시작하는 로그인)</td><td>앱을 처음 열 때 자동</td><td>코인·상품·보상을 서버에서 안전하게 관리</td></tr>
+    <tr><td>로그인 세션 정보(IP 주소, 접속한 앱 정보)</td><td>로그인할 때 자동</td><td>로그인 유지, 부정 접속 방지</td></tr>
+    <tr><td>Google 계정 이메일, 이름, 프로필 사진 주소, Google 고유 ID</td><td>사용자가 "Google 계정 연결"을 선택한 경우만</td><td>기기 변경·재설치 때 진행 복원, 본인 확인</td></tr>
+    <tr><td>게임 진행 백업(친구 이름, 성장, 친밀도, 추억, 방 꾸미기, 기록)</td><td>백업할 때</td><td>진행 복원</td></tr>
+    <tr><td>게임 코인·아이템 기록(게임 코인으로 산 상품, 출석, 미니게임, 광고 보상, 선물 코드)</td><td>해당 기능을 쓸 때</td><td>지급 확인, 중복·부정 사용 방지</td></tr>
+    <tr><td>기기 모델명(예: SM-S906N)</td><td>서버 백업 및 플레이 기기 등록·변경 시</td><td>어느 기기에서 플레이 중인지 안내, 기기 변경 확인</td></tr>
+    <tr><td>광고 관련 정보(광고 ID 등)</td><td>코인 모으기 화면을 열 때(광고 동의 확인과 광고 준비), 보상형 광고를 볼 때</td><td>Google AdMob이 광고를 보여 주고 보상을 확인</td></tr>
+  </table></div>
+  <p>현재 앱에는 현금 결제(인앱 결제)가 없어요. 게임 코인은 게임 안에서만 얻고 쓰며, 결제 정보는 처리하지 않아요.</p>
+  <p>광고 SDK(Google Mobile Ads)는 앱에 포함되어 있어요. 광고 SDK가 Google에 보내는 정보와 그 시점은 Google 정책에 따라요.</p>
+  <p>앱은 연락처, 위치, 사진, 다른 앱의 화면 내용을 수집하지 않아요. 플로팅 친구는 화면 위에 작은 캐릭터 창만 띄우고, 다른 앱의 내용을 읽지 않아요.</p>
+
+  <h2>2. 처리를 맡기는 곳</h2>
+  <ul>
+    <li><b>Supabase</b>(Supabase Pte. Ltd., 서버·로그인): 계정, 백업, 게임 코인 기록 보관과 서버 운영 로그. 서버 위치: 일본 도쿄(AWS ap-northeast-1).</li>
+    <li><b>Google</b>: Google 로그인(선택), AdMob 광고와 광고 동의 화면(UMP). <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a></li>
+  </ul>
+  <p>이 밖의 곳에 개인정보를 팔거나 제공하지 않아요.</p>
+
+  <h2>3. 개인정보의 국외 이전</h2>
+  <h3>3-1. 국외 보관·처리 위탁: Supabase (서버·로그인)</h3>
+  <p>운영자는 앱 서버와 로그인을 Supabase에 맡기고, 개인정보는 국외(일본)에 보관돼요.</p>
+  <div class="wrap"><table>
+    <tr><td>이전받는 자</td><td>Supabase Pte. Ltd. (싱가포르) · 문의: <a href="mailto:privacy@supabase.com">privacy@supabase.com</a></td></tr>
+    <tr><td>이전 국가·처리 지역</td><td>데이터 저장: 일본(AWS 도쿄 리전 ap-northeast-1).<br>
+        서비스를 운영하는 법인은 싱가포르의 Supabase Pte. Ltd.예요. Supabase가 서비스 운영·지원에 쓰는 하위 처리자와 그 국가는
+        Supabase가 공개한 <a href="https://supabase.com/legal/customer-resources/subprocessor-list">하위 처리자 목록</a>을 따라요.</td></tr>
+    <tr><td>이전 항목</td><td>1번 표의 계정 번호, 로그인 세션 정보(IP 주소, 접속한 앱 정보), Google 계정 연결 정보(연결한 경우만), 게임 진행 백업, 게임 코인·아이템 기록, 기기 모델명</td></tr>
+    <tr><td>이전 시기·방법</td><td>앱을 이용할 때마다 인터넷(HTTPS 암호화 통신)으로 전송</td></tr>
+    <tr><td>이용 목적</td><td>서버 운영, 로그인, 게임 데이터 보관(처리 위탁·보관)</td></tr>
+    <tr><td>보유·이용 기간</td><td>4번 "보관 기간과 삭제"와 같아요</td></tr>
+    <tr><td>법적 근거</td><td>「개인정보 보호법」 제28조의8 제1항 제3호: 정보주체와의 계약(앱 서비스 제공)을 체결·이행하는 데 필요한 국외 처리위탁·보관으로서, 이전 사항을 이 처리방침에 공개해요.</td></tr>
+    <tr><td>거부 방법과 효과</td><td>서버 없이는 앱을 쓸 수 없어서, 거부하려면 앱 이용을 멈추고 계정을 삭제해야 해요. 거부하면 앱을 쓸 수 없어요.</td></tr>
+  </table></div>
+  <h3>3-2. Google이 직접 처리하는 정보: Google 로그인·AdMob 광고</h3>
+  <p>Google 로그인과 AdMob 광고는 Google이 제공하는 서비스예요. 이 과정의 정보는 사용자의 기기에서 Google로 직접 전송되고,
+     Google이 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>에 따라 처리해요.
+     운영자는 광고 보상 확인용 일회용 번호 외에 Supabase에 보관한 계정·게임 정보를 Google에 넘기지 않아요. Google 로그인을 연결하면 Google이 보내 준 정보(1번 표)는 위 3-1처럼 Supabase에 보관돼요.</p>
+  <div class="wrap"><table>
+    <tr><td>처리하는 곳</td><td>Google LLC (미국) · 문의: <a href="https://policies.google.com/privacy/additional?hl=ko">Google 한국 거주자를 위한 개인정보 관련 추가 정보</a>에 안내된 연락처</td></tr>
+    <tr><td>처리 지역</td><td>국외에 있는 Google 데이터 센터(위 Google 안내 기준. 국가별 목록은 Google이 따로 밝히지 않아요)</td></tr>
+    <tr><td>항목</td><td>Google 로그인: 사용자가 Google에 직접 로그인하는 과정의 정보(연결한 경우만)<br>
+        AdMob(Google 모바일 광고 SDK 안내 기준): IP 주소, 앱 안의 광고 관련 상호작용, 진단 정보, 광고 ID 등 기기 식별자</td></tr>
+    <tr><td>시기·방법</td><td>Google 계정을 연결할 때, 코인 모으기 화면을 열거나 광고를 볼 때 인터넷(암호화 통신)으로 전송</td></tr>
+    <tr><td>목적</td><td>Google 로그인 처리, 광고 제공과 보상 확인</td></tr>
+    <tr><td>보유 기간</td><td>Google 정책에 따라요</td></tr>
+    <tr><td>거부 방법과 효과</td><td>Google 로그인: 연결하지 않으면 돼요. 게임은 그대로 쓸 수 있지만 기기 변경 때 진행을 복원할 수 없어요.<br>AdMob: 코인 모으기 화면을 열지 않으면 광고를 준비하지 않아요. 이 경우 광고 보상을 받을 수 없어요. 맞춤 광고는 광고 동의 화면과 기기의 Google 설정에서 바꿀 수 있어요.</td></tr>
+  </table></div>
+
+  <h2>4. 보관 기간과 삭제</h2>
+  <ul>
+    <li>계정과 게임 데이터는 사용자가 계정을 삭제할 때까지 보관해요.</li>
+    <li>계정을 삭제하면 아래 정보가 바로 삭제돼요.
+      <ul>
+        <li>로그인 계정, 로그인 세션, Google 로그인 정보와 계정 연결 정보</li>
+        <li>친구(펫), 성장, 친밀도, 추억 등 게임 진행 기록</li>
+        <li>보유 게임 코인과 아이템, 게임 코인 사용·보상 원장</li>
+        <li>출석, 미니게임, 선물 코드 사용, 광고 보상 기록, 기기 변경 기록, 서버 백업</li>
+      </ul>
+    </li>
+    <li>삭제 후에도 아래 정보는 남을 수 있어요.
+      <ul>
+        <li><b>최소 삭제 이력</b>: 삭제된 계정의 무작위 계정 번호(UUID), 삭제 시각, 삭제 방법(앱 또는 이메일 요청), 함께 지운 백업 개수.
+            삭제된 계정이 다시 서비스를 쓰지 못하게 막는 데 써요. 이메일·이름·Google ID는 없지만 계정 번호가 남는
+            <b>가명 정보</b>예요(완전한 익명 정보가 아니에요). 보관 기간: <b>삭제 후 7일</b>(하루 한 번 자동 정리, 늦어도 8일 안에 삭제).</li>
+        <li><b>선물 코드 사용 집계</b>: 코드별로 삭제된 계정이 사용한 횟수(숫자)만 남고, 어느 계정이 썼는지는 남지 않아요.</li>
+        <li><b>Supabase 운영 로그</b>: 요청 시각, 요청 경로 등 접속 기록(IP 주소가 포함될 수 있어요). Supabase 요금제의 기본 보관 기간이 지나면 자동으로 지워져요.
+            현재 요금제(Free) 기준 API·데이터베이스 로그 1일, 로그인 감사 로그 24시간.</li>
+        <li><b>이미 만들어진 서버 백업</b>: 운영자가 직접 만든 데이터베이스 백업에는 삭제 전 데이터가 남을 수 있어요. 장애 복구에만 쓰고 <b>최대 14일</b> 보관해요(최신 정상 백업 약 2개 유지).
+            백업으로 복구할 때는 복구본을 쓰기 전에, 백업 이후 삭제된 것으로 확인되는 계정을 다시 삭제해요. 현재 요금제에는 Supabase 자동 백업이 없어요.</li>
+        <li><b>이메일 삭제 요청 기록</b>: 요청 메일과 회신은 처리를 마친 뒤 <b>30일</b> 동안 보관하고 그 뒤 영구 삭제해요.</li>
+      </ul>
+    </li>
+    <li>삭제 방법: <a href="../account-deletion/">계정 삭제 안내</a> (앱 안에서 바로 삭제, 또는 이메일 요청)</li>
+  </ul>
+
+  <h2>5. 사용자 권리와 개인정보 문의</h2>
+  <p>언제든 자신의 정보 열람, 정정, 삭제, 처리 중지를 요청할 수 있어요. 광고 개인 맞춤 설정은 기기의 Google 설정과 앱의 광고 동의 화면에서 바꿀 수 있어요.</p>
+  <ul>
+    <li><b>개인정보 문의 창구</b>: 윤소프트(YoonSoft) · <a href="mailto:yoonsoft.company@gmail.com">yoonsoft.company@gmail.com</a></li>
+    <li><b>개인정보 보호책임자</b>: 윤소프트(YoonSoft) 대표 윤주연 · <a href="mailto:yoonsoft.company@gmail.com">yoonsoft.company@gmail.com</a></li>
+  </ul>
+
+  <h2>6. 아동</h2>
+  <p>Pocket Life는 만 16세 미만 아동을 대상으로 제작된 앱이 아닙니다.</p>
+
+  <h2>7. 안전 조치</h2>
+  <p>서버와의 통신은 모두 암호화(HTTPS)돼요. 기기 안의 로그인 정보는 Android 키 저장소로 암호화해 보관해요. 앱에는 서버 관리용 비밀 키가 들어 있지 않아요.</p>
+
+  <h2>8. 변경</h2>
+  <p>이 방침이 바뀌면 이 페이지와 앱 안내로 알려 드려요.</p>
+</main>
+</body>
+</html>
